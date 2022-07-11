@@ -9,12 +9,16 @@ export const getPostsAction = () => {
                          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmNiZWNlY2U2YzAzMDAwMTU5MTgxNDMiLCJpYXQiOjE2NTc1MzE2MjgsImV4cCI6MTY1ODc0MTIyOH0.Ueo_M62QO05ffN1aYIPJjOyI14bH3uldPPo-OlagobM"
                     }
                 }
-            )
-            let posts = await response.json();
-            dispatch({
-                type:'GET_POSTS',
-                payload: posts,
-            })
+            );
+            if (response.ok) {
+                let posts = await response.json();
+                dispatch({
+                  type: 'GET_POSTS',
+                  payload: posts,
+                })
+             
+  
+              }
         } catch (error) {
             console.log(error)
         }
