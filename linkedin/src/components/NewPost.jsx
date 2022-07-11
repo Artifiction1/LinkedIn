@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from 'react'
+import {connect} from 'react-redux'
 
+const mapStateToProps = (state) => {
+    return{
+        posts: state.posts.postsList,
+    }
+}
 
 
 function NewPost () {
@@ -7,7 +13,7 @@ function NewPost () {
         newPost();
       }, []);
 
-const newPost = async () => {
+const newPost = async ({posts}) => {
     try {
         let text = { text: "hey new post" };
         let response = await fetch(
@@ -33,8 +39,8 @@ const newPost = async () => {
 }
 
     return(
-        <div>NewPost</div>
+        <div></div>
     )
 }
 
-export default NewPost
+export default connect(mapStateToProps)(NewPost)

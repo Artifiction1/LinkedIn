@@ -1,7 +1,7 @@
 const initialState = {
   posts: {
     postsList: [],
-    newPost: {},
+    
   },
 };
 
@@ -15,14 +15,7 @@ const mainReducer = (state = initialState, action) => {
           postsList: action.payload,
         },
       };
-    case "NEW_POST":
-      return {
-        ...state,
-        posts: {
-          ...state.posts,
-          newPost: action.payload,
-        },
-      };
+   
     default:
       return state;
   }
