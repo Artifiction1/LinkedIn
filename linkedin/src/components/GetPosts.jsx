@@ -9,13 +9,16 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps =(dispatch) => {
     return {
-        getPostsList: ()=>{
+        getPostsList: () => {
             dispatch(getPostsAction())
         }
     }
 }
 
-function GetPosts() {
+function GetPosts({getPostsList}) {
+    useEffect(() => {
+        getPostsList();
+      }, []);
     return (
         <div>GetPosts</div>
     )

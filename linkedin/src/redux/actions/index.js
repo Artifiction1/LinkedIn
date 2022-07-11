@@ -12,6 +12,7 @@ export const getPostsAction = () => {
             );
             if (response.ok) {
                 let posts = await response.json();
+                console.log(posts)
                 dispatch({
                   type: 'GET_POSTS',
                   payload: posts,
