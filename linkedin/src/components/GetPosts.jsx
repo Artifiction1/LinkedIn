@@ -15,7 +15,7 @@ const mapDispatchToProps =(dispatch) => {
     }
 }
 
-function GetPosts({getPostsList}) {
+const GetPosts = ({getPostsList}) => {
     useEffect(() => {
         getPostsList();
       }, []);
