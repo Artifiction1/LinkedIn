@@ -1,41 +1,41 @@
-import { useState } from "react";
-import { fetchData } from "../functions/fetch";
+/** @format */
 
-const ShowData = () => {
+import { useEffect } from "react";
+import { ListGroupItem } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { fetchProfilesAction } from "../redux/actions/actions";
 
-    const [profiles, setProfiles] = useState([])
+const ShowData = ({ profile }) => {
+  const profilesHave = useSelector((state) => state.fetchedProfiles);
 
+  const navigate = useNavigate();
 
-    const fetchData = async () => {
-        try {
-          const response = await fetch(
-            "https://striveschool-api.herokuapp.com/api/profile/",
-            {
-              headers: {
-                Authorization:
-                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmNiZWNlY2U2YzAzMDAwMTU5MTgxNDMiLCJpYXQiOjE2NTc1MzE2MjgsImV4cCI6MTY1ODc0MTIyOH0.Ueo_M62QO05ffN1aYIPJjOyI14bH3uldPPo-OlagobM",
-              },
-            }
-          );
-          if (response.ok) {
-            const getData = await response.json();
-            console.log(getData);
-            setProfiles(getData)
-          } else {
-              console.log("ERROR !!")
-          }
-        } catch (error) {
-          console.log(error);
-        }
-      };
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchProfilesAction());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-    return (
-        <div>
-            {profiles && profiles.map((profile) => {
-                <List
-            })}
-        </div>
-    )
-}
+  const goToDetails = () => {
+    navigate("/profile/" + profile._id);
+  };
 
-export default ShowData
+  return (
+    <div>
+      {profilesHave &&
+        profilesHave.slice(0, 10).map((profile) => (
+          <div>
+            <ListGroupItem onClick={goToDetails}>{profile.name}</ListGroupItem>
+            <ListGroupItem
+              className="mb-5"
+              onClick={() => navigate("/profile")}>
+              {profile.email}
+            </ListGroupItem>
+          </div>
+        ))}
+    </div>
+  );
+};
+
+export default ShowData;
