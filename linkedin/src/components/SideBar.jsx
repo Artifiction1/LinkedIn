@@ -6,22 +6,22 @@ import "../CssStyles/SideBar.css";
 // fontawesome imports
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGlobe, faQuestionCircle , faAlicorn } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
 const Sidebar = (props) => {
-  const history = useHistory();
+  const navigate = useNavigate()
 
   const [profiles, setProfiles] = useState([]);
 
   const fetchData = async () => {
     try {
       let response = await fetch(
-        "",
+        "https://striveschool-api.herokuapp.com/api/profile/",
         {
           headers: {
             Authorization:
-              "",
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmNiZWNlY2U2YzAzMDAwMTU5MTgxNDMiLCJpYXQiOjE2NTc1MzE2MjgsImV4cCI6MTY1ODc0MTIyOH0.Ueo_M62QO05ffN1aYIPJjOyI14bH3uldPPo-OlagobM",
           },
         }
       );
@@ -129,7 +129,7 @@ const Sidebar = (props) => {
                           <div
                             className="profile-name"
                             onClick={() => {
-                              history.push(`/profile/${profile._id}`);
+                              navigate.push(`/profile/${profile._id}`);
                             }}
                           >
                             {profile.name} {profile.surname}

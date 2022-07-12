@@ -18,11 +18,11 @@ const Profile = () => {
   const fetchUser = async (id) => {
     try {
       let response = await fetch(
-        "" + id,
+        "https://striveschool-api.herokuapp.com/api/profile/me" ,
         {
           headers: {
             Authorization:
-              "",
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmNiZWNlY2U2YzAzMDAwMTU5MTgxNDMiLCJpYXQiOjE2NTc1MzE2MjgsImV4cCI6MTY1ODc0MTIyOH0.Ueo_M62QO05ffN1aYIPJjOyI14bH3uldPPo-OlagobM",
           },
         }
       );
@@ -55,7 +55,6 @@ const Profile = () => {
         </Col>
       </Row>
     </Container>
-    <Footer/>
     </>
   );
 };
