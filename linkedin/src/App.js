@@ -3,7 +3,6 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ModalProfile from "./components/ModalProfile";
 import NavBar from "./components/NavBar";
 import Profile from "./components/Profile";
 import Footer from "./components/Footer";

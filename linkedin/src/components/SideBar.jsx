@@ -1,17 +1,13 @@
 /** @format */
 
 import { useEffect, useState } from "react";
-import { Col, Row, Container, Button, Image } from "react-bootstrap";
+import { Button, Image } from "react-bootstrap";
 import Advertisement from "../assets/advertisement.jpg";
 import "../css/SideBar.css";
 
 // fontawesome imports
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faGlobe,
-  faQuestionCircle,
-  faAlicorn,
-} from "@fortawesome/free-solid-svg-icons";
+import { faGlobe, faQuestionCircle } from "@fortawesome/free-solid-svg-icons";
 import { Link, useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
