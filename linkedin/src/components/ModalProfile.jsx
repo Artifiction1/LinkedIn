@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { Modal, Button } from "react-bootstrap";
+import { Modal, Button, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { editProfileAction } from "../redux/actions/actions";
 
@@ -12,37 +12,48 @@ const ModalProfile = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const editProfiles = useSelector((state) => state.editProfiles);
-
   const dispatch = useDispatch();
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
-        Edit
+      <Button className="edit" onClick={handleShow}>
+        <i className="bi bi-pencil "></i>
       </Button>
       <Modal show={show} onHide={handleClose} animation={false}>
-        <Modal.Header closeButton>
+        <Modal.Header>
           <Modal.Title>Edit Profile</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <label for="track-title" class="col-form-label">
-            Name
-          </label>
-          <input className="inputs-modal" type="text" id="name" />
+          <Form>
+            <div className="input-groups">
+              <Form.Group>
+                <Form.Label>Name</Form.Label>
+                <Form.Control className="input-fields" type="text" id="name" />
+              </Form.Group>
+              <Form.Group>
+                <Form.Label>Surname</Form.Label>
+                <Form.Control
+                  className="input-fields"
+                  type="text"
+                  id="surname"
+                />
+              </Form.Group>
+              <Form.Group>
+                <Form.Label>Title</Form.Label>
+                <Form.Control className="input-fields" type="text" id="title" />
+              </Form.Group>
+              <Form.Group>
+                <Form.Label>Area</Form.Label>
+                <Form.Control className="input-fields" type="text" id="area" />
+              </Form.Group>
+              <Form.Group>
+                <Form.Label>Bio</Form.Label>
+                <Form.Control className="input-fields" type="text" id="bio" />
+              </Form.Group>
+            </div>
+          </Form>
         </Modal.Body>
-        <Modal.Body>
-          <label for="track-title" class="col-form-label">
-            Title
-          </label>
-          <input className="inputs-modal" type="text" id="title" />
-        </Modal.Body>
-        <Modal.Body>
-          <label for="track-title" class="col-form-label">
-            Area
-          </label>
-          <input className="inputs-modal" type="text" id="area" />
-        </Modal.Body>
+
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
@@ -54,13 +65,6 @@ const ModalProfile = () => {
           </Button>
         </Modal.Footer>
       </Modal>
-      {editProfiles && (
-        <div className="mt-5">
-          <h1>{editProfiles.name}</h1>
-          <h2>{editProfiles.title}</h2>
-          <h3>{editProfiles.area}</h3>
-        </div>
-      )}
     </>
   );
 };

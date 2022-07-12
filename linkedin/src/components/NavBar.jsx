@@ -7,12 +7,66 @@ import {
   FormControl,
   Image,
   Container,
+  ListGroupItem,
+  ListGroup,
 } from "react-bootstrap";
 import "../css/NavBar.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
+import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+
 const MyNavbar = () => {
+  const [profile, setProfile] = useState([]);
+
+  const [filteredData, setfilteredData] = useState([]);
+
+  const [hasBeenClicked, setHasBeenClicked] = useState(false);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const handleFilter = (event) => {
+    const searchProfile = event.target.value;
+    const newFilter = profile.filter((value) => {
+      return value.name.toLowerCase().includes(searchProfile.toLowerCase());
+    });
+
+    if (searchProfile.length > 0) {
+      setfilteredData(newFilter);
+    } else {
+      setfilteredData([]);
+    }
+  };
+
+  const onInputClick = (hasItBeenClicked) => {
+    console.log(hasBeenClicked);
+    setHasBeenClicked(hasItBeenClicked);
+  };
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch(
+        "https://striveschool-api.herokuapp.com/api/profile/",
+        {
+          method: "GET",
+          headers: {
+            Authorization:
+              " Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmNiZWNlY2U2YzAzMDAwMTU5MTgxNDMiLCJpYXQiOjE2NTc1MzE2MjgsImV4cCI6MTY1ODc0MTIyOH0.Ueo_M62QO05ffN1aYIPJjOyI14bH3uldPPo-OlagobM",
+          },
+        }
+      );
+      if (response.ok) {
+        const data = await response.json();
+        setProfile(data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
       <Navbar
@@ -33,19 +87,56 @@ const MyNavbar = () => {
             <i
               className="bi bi-search mx-3"
               style={{ color: "grey", fontSize: "16px" }}></i>
-            <Form inline id="searchBar" className="d-none d-md-inline-block">
+            <Form id="searchBar" className="d-none d-md-inline-block">
               <FormControl
                 type="text"
                 placeholder="Search"
                 className="mr-sm-2 "
+                onClick={() => onInputClick(false)}
                 style={{
                   backgroundColor: "#eef3f8",
                   border: "none",
                   height: "34px",
                   width: "110%",
                 }}
+                onChange={handleFilter}
               />
             </Form>
+            {filteredData.length !== 0 && (
+              <div>
+                {filteredData.slice(0, 10).map((profile) => {
+                  return (
+                    <ListGroup>
+                      <div>
+                        <Link to={"/profile"}>
+                          <ListGroupItem
+                            className="search-list"
+                            onClick={() => onInputClick(true)}>
+                            {/* <img
+                        style={{
+                          width: "25px",
+                          height: "25px",
+                          borderRadius: "50%",
+                        }}
+                        src={profile.image}
+                        alt=""
+                      /> */}
+                            <span
+                              className="mx-3"
+                              style={{ color: "black", fontSize: "14px" }}>
+                              <strong>{profile.name}</strong>
+                            </span>
+                            <span style={{ color: "black", fontSize: "14px" }}>
+                              {profile.title}
+                            </span>
+                          </ListGroupItem>
+                        </Link>
+                      </div>
+                    </ListGroup>
+                  );
+                })}
+              </div>
+            )}
           </div>
 
           <Nav.Link
@@ -78,9 +169,9 @@ const MyNavbar = () => {
             <i className="iconNavBar bi bi-bell-fill"></i>
             <span className="d-none d-md-inline-block mt-n1">Notification</span>
           </Nav.Link>
-          <Nav.Link
-            className="containerIconAndNameNavBar d-flex flex-column align-items-center"
-            href="/in/me"
+          <Link
+            to="/userprofile"
+            className="containerIconAndNameNavBar d-flex flex-column align-items-center nav-link"
             id="userImg">
             <Image
               id="UserImageNavbar"
@@ -92,7 +183,7 @@ const MyNavbar = () => {
               style={{ marginTop: "0rem" }}>
               Me
             </span>
-          </Nav.Link>
+          </Link>
           <Nav.Link
             className="containerIconAndNameNavBar d-flex flex-column align-items-center"
             href="">

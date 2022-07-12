@@ -1,0 +1,115 @@
+/** @format */
+
+.bg-image {
+  width: 100%;
+}
+#bg-img {
+  height: 200px;
+  width: 100%;
+}
+.userImgUpdated {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  position: absolute;
+  top: 90px;
+  left: 45px;
+}
+
+.btns {
+  margin-top: 10px;
+  margin-right: 10px;
+  border-radius: 20px;
+}
+
+.editButton {
+  border-radius: 50%;
+  background-color: white;
+  border: none;
+  color: black;
+  position: absolute;
+  top: 40px;
+  right: 30px;
+}
+
+.editButton:hover {
+  background-color: rgb(25, 234, 234);
+}
+
+.editButton:focus {
+  background-color: rgb(25, 234, 234);
+}
+
+#mainSection {
+  border: 1px solid rgb(184, 180, 180);
+  background-color: white;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+.all-details {
+  text-align: left;
+  padding-left: 2rem;
+  padding-bottom: 2rem;
+}
+.about-me {
+  margin-top: 0.5rem;
+  border: 1px solid rgb(184, 180, 180);
+  background-color: white;
+  overflow: hidden;
+  border-radius: 10px;
+  text-align: left;
+  padding: 2rem;
+}
+
+.contact-btn {
+  border: none !important;
+  background-color: inherit;
+  color: rgb(11, 83, 127);
+  font-weight: 700;
+}
+
+.mail-icon {
+  font-size: 30px;
+  margin-right: 20px;
+}
+
+.mail {
+  align-items: center;
+}
+
+.education {
+  margin-top: 0.5rem;
+  border: 1px solid rgb(184, 180, 180);
+  background-color: white;
+  overflow: hidden;
+  border-radius: 10px;
+  text-align: left;
+  padding: 2rem;
+}
+.epicode-image {
+  width: 68px;
+  align-items: baseline;
+}
+.education-body {
+  margin-left: 10px !important;
+}
+.div-edu {
+  height: 25px;
+}
+
+.skills {
+  margin-top: 0.5rem;
+  border: 1px solid rgb(184, 180, 180);
+  background-color: white;
+  overflow: hidden;
+  border-radius: 10px;
+  text-align: left;
+  padding: 2rem;
+}
+.skills-div {
+  height: 60px;
+}

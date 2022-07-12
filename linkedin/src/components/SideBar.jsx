@@ -44,115 +44,104 @@ const Sidebar = () => {
 
   return (
     <>
-      <Container>
-        {/* Main section of SideBar */}
-        <Row>
-          {/*  Side bar start */}
-          <Col xs={12} className="sidebar-container p-0">
-            {/* edit-public-language section */}
-            <div className="edit-public-language-container pb-1">
-              {/* edit public profile */}
-              <div className="d-flex justify-content-between m-2">
-                <span className="edit-text ml-3">
-                  {" "}
-                  Edit Public profile and url
-                </span>
-                <FontAwesomeIcon
-                  className="button-icon question-icon ml-auto mr-3"
-                  icon={faQuestionCircle}
-                />
-                <div>{""}</div>
-              </div>
-              <hr />
-              <div className="d-flex justify-content-between m-2">
-                <span className="edit-text ml-3">
-                  {" "}
-                  Add profile in another language
-                </span>
-                <FontAwesomeIcon
-                  className="button-icon question-icon ml-auto mr-3"
-                  icon={faQuestionCircle}
-                />
-                <div>{""}</div>
-              </div>
-              <hr />
-              {/* add profile in another language  */}
-              <div className="sidebar-btn mt-2 mb-2 d-flex justify-content-between align-items-center">
-                <div className="ml-3">
-                  <Button
-                    className="rounded-pill btn-sm long-btn pl-2"
-                    variant="primary">
-                    English
-                  </Button>{" "}
-                  <Button
-                    className="rounded-pill btn-sm long-btn"
-                    variant="outline-dark">
-                    {" "}
-                    German
-                  </Button>
-                </div>
-                <FontAwesomeIcon
-                  className="button-icon globe-icon ml-auto mr-4"
-                  icon={faGlobe}
-                />
-              </div>
-            </div>
+      {/* edit-public-language section */}
+      <div className="edit-public-language-container pb-1">
+        {/* edit public profile */}
+        <div className="d-flex justify-content-between m-2">
+          <span className="edit-text ml-3"> Edit Public profile and url</span>
+          <FontAwesomeIcon
+            className="button-icon question-icon ml-auto mr-3"
+            icon={faQuestionCircle}
+          />
+          <div>{""}</div>
+        </div>
+        <hr />
+        <div className="d-flex justify-content-between m-2">
+          <span className="edit-text ml-3">
+            {" "}
+            Add profile in another language
+          </span>
+          <FontAwesomeIcon
+            className="button-icon question-icon ml-auto mr-3"
+            icon={faQuestionCircle}
+          />
+          <div>{""}</div>
+        </div>
+        <hr />
+        {/* add profile in another language  */}
+        <div className="sidebar-btn mt-2 mb-2 d-flex justify-content-between align-items-center">
+          <div className="ml-3">
+            <Button
+              className="rounded-pill btn-sm long-btn pl-2"
+              variant="primary">
+              English
+            </Button>{" "}
+            <Button
+              className="rounded-pill btn-sm long-btn"
+              variant="outline-dark">
+              {" "}
+              German
+            </Button>
+          </div>
+          <FontAwesomeIcon
+            className="button-icon globe-icon ml-auto mr-4"
+            icon={faGlobe}
+          />
+        </div>
+      </div>
 
-            <div className="edit-public-language-container d-flex justify-content-center p-0">
-              <div className="advertisement">
-                <Image src={Advertisement} fluid />
-              </div>
-            </div>
+      <div className="edit-public-language-container d-flex justify-content-center p-0">
+        <div className="advertisement">
+          <Image src={Advertisement} fluid />
+        </div>
+      </div>
 
-            {/* People you may know */}
-            <div className="people pt-3 ">
-              <span className="pl-3 pb-3 text">People you may know</span>
-              <div className="pl-3 pt-2">
-                {/* Loading profiles from fetched data */}
-                {profiles.map((profile) => (
-                  <div key={profile._id}>
-                    <div className="d-flex">
-                      {/* Images */}
-                      <Image
-                        className="img-circle mt-1"
-                        style={{ width: "48px", height: "48px" }}
-                        src={profile.image}
-                        alt="Linkedin Member"
-                        fluid
-                        roundedCircle></Image>
+      {/* People you may know */}
+      <div className="people pt-3 ">
+        <span className="pl-3 pb-3 text">People you may know</span>
+        <div className="pl-3 pt-2">
+          {/* Loading profiles from fetched data */}
+          {profiles.map((profile) => (
+            <div key={profile._id}>
+              <div className="d-flex side-bar">
+                {/* Images */}
+                <Image
+                  className="img-circle mt-1"
+                  style={{ width: "60px", height: "60px" }}
+                  src={profile.image}
+                  alt="Linkedin Member"
+                  fluid
+                  roundedCircle></Image>
 
-                      {/* Name & Surname */}
-                      <div className="profile-details ml-4 mb-2">
-                        <Link to={"/profile/" + profile._id}>
-                          <div
-                            className="profile-name"
-                            onClick={() => {
-                              navigate.push(`/profile/${profile._id}`);
-                            }}>
-                            {profile.name} {profile.surname}
-                          </div>
-                        </Link>
-
-                        {/* Title */}
-                        <div className="profile-title">{profile.title}</div>
-
-                        {/* Connect */}
-                        <div className="profile-message">
-                          <Button
-                            className="rounded-pill btn-sm"
-                            variant="outline-dark">
-                            Connect
-                          </Button>
-                        </div>
-                      </div>
+                {/* Name & Surname */}
+                <div className="profile-details ml-4 mb-2">
+                  <Link to={"/profile/" + profile._id}>
+                    <div
+                      className="profile-name"
+                      onClick={() => {
+                        navigate.push(`/profile/${profile._id}`);
+                      }}>
+                      {profile.name} {profile.surname}
                     </div>
+                  </Link>
+
+                  {/* Title */}
+                  <div className="profile-title">{profile.title}</div>
+
+                  {/* Connect */}
+                  <div className="profile-message">
+                    <Button
+                      className="rounded-pill btn-sm"
+                      variant="outline-dark">
+                      Connect
+                    </Button>
                   </div>
-                ))}
+                </div>
               </div>
             </div>
-          </Col>
-        </Row>
-      </Container>
+          ))}
+        </div>
+      </div>
     </>
   );
 };

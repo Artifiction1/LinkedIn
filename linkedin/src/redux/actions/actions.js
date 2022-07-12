@@ -7,7 +7,7 @@ export const fetchProfilesAction = () => {
   return async (dispatch) => {
     try {
       const response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/profile/",
+        "https://striveschool-api.herokuapp.com/api/profile/me",
         {
           headers: {
             Authorization:
@@ -37,8 +37,10 @@ export const editProfileAction = () => {
     try {
       const list = {
         name: document.getElementById("name").value,
+        surname: document.getElementById("surname").value,
         title: document.getElementById("title").value,
         area: document.getElementById("area").value,
+        bio: document.getElementById("bio").value,
       };
       const response = await fetch(
         " https://striveschool-api.herokuapp.com/api/profile/",

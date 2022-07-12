@@ -4,7 +4,7 @@ import { Container, Row, Col } from "react-bootstrap";
 
 import SideBar from "./SideBar";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import Header from "./Header";
 
 const Profile = () => {
   /* const params = useParams();
@@ -20,7 +20,7 @@ const Profile = () => {
   const fetchUser = async (id) => {
     try {
       let response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/profile/me ",
+        "https://striveschool-api.herokuapp.com/api/profile/me",
         {
           headers: {
             Authorization:
@@ -47,11 +47,12 @@ const Profile = () => {
   return (
     <>
       {user && (
-        <Container style={{ marginTop: "100px" }}>
-          <Row>
-            <Col md={8} style={{ height: "100%" }}></Col>
-
-            <Col md={4}>
+        <Container>
+          <Row className="hero-section">
+            <Col md={9} className="px-0">
+              <Header />
+            </Col>
+            <Col md={3} className="px-0">
               <SideBar />
             </Col>
           </Row>

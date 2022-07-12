@@ -40,7 +40,7 @@ const Home = () => {
           <LeftSideBarCardProfile profile={profile} />
         </Col>
         <Col xs={12} md={8} lg={6} style={{ height: "100%" }}>
-          <NewPost
+          {/* <NewPost
             profile={profile}
             setPosts={setPosts}
             posts={posts}
@@ -50,7 +50,7 @@ const Home = () => {
             profile={profile}
             posts={posts}
             fetchPosts={fetchPosts}
-          />
+          /> */}
         </Col>
 
         <Col md={4} className="d-none d-md-block" style={{ height: "100%" }}>

@@ -2,6 +2,7 @@
 
 .App {
   text-align: center;
+  background-color: rgb(241, 232, 221);
 }
 
 .App-logo {
@@ -50,4 +51,27 @@
 }
 .nav-icons {
   color: grey;
+}
+
+.hero-section {
+  margin: 2rem 0 !important;
+}
+
+.edit {
+  cursor: pointer !important;
+  border-radius: 50% !important;
+  background-color: white !important;
+  border: none !important;
+  color: black !important;
+  margin-right: 20px;
+}
+
+.input-groups {
+  margin-left: 20px;
+}
+
+.input-fields {
+  margin-bottom: 10px;
+  width: 350px !important;
+  border-radius: 10px !important;
 }
