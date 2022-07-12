@@ -44,18 +44,18 @@ const NewPost = ({ allPosts }) => {
 
   return (
     <>
-      <div>{allPosts.filter(current => current.username === 'marios').map(filteredPost => (
+      <div>{allPosts.reverse().slice(0,50).map((current, index) => {if(current.user&& current.user._id=== '62cbecece6c0300015918143'){return (
         <Card style={{ width: '18rem' }}>
         <Card.Img variant="top" src="holder.js/100px180" />
         <Card.Body>
           <Card.Title>Card Title</Card.Title>
           <Card.Text>
-            {filteredPost.text}
+            {current.text}
           </Card.Text>
-          <Button variant="primary"><Link className='text-white' to={`/Details/${filteredPost._id}`}>Details</Link></Button>
+          <Button variant="primary"><Link className='text-white' to={`/Details/${current._id}`}>Details</Link></Button>
         </Card.Body>
       </Card>
-      ))}</div>
+      )}})}</div>
       <div className="create">
         <h2>Add a New Post</h2>
         <form onSubmit={handleSubmit}>
