@@ -47,7 +47,7 @@ const Profile = () => {
   return (
     <>
       {user && (
-        <Container>
+        <Container className="whole-section">
           <Row className="hero-section">
             <Col md={9} className="px-0">
               <Header />

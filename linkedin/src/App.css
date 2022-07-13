@@ -75,3 +75,6 @@
   width: 350px !important;
   border-radius: 10px !important;
 }
+.container {
+  padding: 0 20px !important;
+}

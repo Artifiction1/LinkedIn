@@ -6,6 +6,7 @@ import { ArrowRight, Pencil, PeopleFill, Plus } from "react-bootstrap-icons";
 import { useDispatch, useSelector } from "react-redux";
 import "../css/Header.css";
 import { fetchProfilesAction } from "../redux/actions/actions";
+import Experiences from "./Experiences";
 import ModalProfile from "./ModalProfile";
 
 export default function Header() {
@@ -90,11 +91,48 @@ export default function Header() {
           <Button variant="outline-secondary" className="btns" id="more">
             More
           </Button>
+          <Row>
+            <Col md={6}>
+              <div className="open-to-work ">
+                <b>
+                  <span className="d-block">Open to work</span>
+                </b>
+                <span className="d-block">Frontend Developer roles</span>
+                <b>
+                  <span className="text-primary">See all details</span>
+                </b>
+              </div>
+            </Col>
+          </Row>
         </div>
       </div>
       <div className="about-me">
         <h3>About me</h3>
         <p>{profilesHave.bio}</p>
+      </div>
+      <div className="experiences">
+        <div className="div-edu">
+          <h3>Experience</h3>
+          <Plus
+            size="2.5rem"
+            style={{
+              cursor: "pointer",
+              marginLeft: "46rem",
+              marginTop: "-5rem",
+            }}
+          />
+          <Pencil
+            size="1.2rem"
+            style={{
+              cursor: "pointer",
+              marginLeft: "50rem",
+              marginTop: "-8rem",
+            }}
+          />
+        </div>
+        <Experiences />
+        <hr></hr>
+        <Experiences />
       </div>
       <div className="education">
         <div className="div-edu">

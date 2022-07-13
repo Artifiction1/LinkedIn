@@ -50,6 +50,13 @@
   padding-right: 0px !important;
 }
 
+.open-to-work {
+  margin-top: 2rem;
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: rgb(176, 172, 172);
+}
 .all-details {
   text-align: left;
   padding-left: 2rem;
@@ -65,6 +72,15 @@
   padding: 2rem;
 }
 
+.experiences {
+  margin-top: 0.5rem;
+  border: 1px solid rgb(184, 180, 180);
+  background-color: white;
+  overflow: hidden;
+  border-radius: 10px;
+  text-align: left;
+  padding: 1.4rem;
+}
 .contact-btn {
   border: none !important;
   background-color: inherit;

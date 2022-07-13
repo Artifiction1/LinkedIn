@@ -94,6 +94,51 @@ const Sidebar = () => {
 
       {/* People you may know */}
       <div className="people pt-3 ">
+        <span className="pl-3 pb-3 text">People also viewed</span>
+        <div className="pl-3 pt-2">
+          {/* Loading profiles from fetched data */}
+          {profiles.map((profile) => (
+            <div key={profile._id}>
+              <div className="d-flex side-bar">
+                {/* Images */}
+                <Image
+                  className="img-circle mt-1"
+                  style={{ width: "60px", height: "60px" }}
+                  src={profile.image}
+                  alt="Linkedin Member"
+                  fluid
+                  roundedCircle></Image>
+
+                {/* Name & Surname */}
+                <div className="profile-details ml-4 mb-2">
+                  <Link to={"/profile/" + profile._id}>
+                    <div
+                      className="profile-name"
+                      onClick={() => {
+                        navigate.push(`/profile/${profile._id}`);
+                      }}>
+                      {profile.name} {profile.surname}
+                    </div>
+                  </Link>
+
+                  {/* Title */}
+                  <div className="profile-title">{profile.title}</div>
+
+                  {/* Connect */}
+                  <div className="profile-message">
+                    <Button
+                      className="rounded-pill btn-sm"
+                      variant="outline-dark">
+                      Connect
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="people pt-3 ">
         <span className="pl-3 pb-3 text">People you may know</span>
         <div className="pl-3 pt-2">
           {/* Loading profiles from fetched data */}
