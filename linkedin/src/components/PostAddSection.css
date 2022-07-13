@@ -1,0 +1,56 @@
+/*This needs to eventually be replaced by box component*/
+#postAddSection {
+    background-color: white;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 0.8rem;
+    border-width: 1px;
+    border-color: #e9e5df;
+    border-style: solid;
+  }
+  
+  /*This is for the Profile Image in the first div*/
+  #postAddSection img {
+    border-radius: 50%;
+    object-fit: cover;
+    height: 48px;
+    width: 48px;
+  }
+  
+  /*This is for the Start Post button in the first div*/
+  #startPostButton {
+    border-radius: 5rem;
+    border-color: rgba(0, 0, 0, 0.6);
+    width: 90%;
+    text-align: left;
+    background: none;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 0px 10px 16px;
+    margin-left: 0.5rem;
+  }
+  
+  /*This is for all the buttons in this section */
+  #startPostButton:hover,
+  #postAddSection .post-buttons:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: rgba(0, 0, 0, 0.6);
+  }
+  
+  /*This is for the buttons of the second div (colorful ones)*/
+  #postAddSection .post-buttons {
+    margin-top: -10px;
+    background: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.6);
+    border: none;
+  }
+  
+  /*This is for the icons in the buttons of the second div*/
+  #postAddSection .post-buttons i {
+    margin-right: 10px;
+    font-size: 20px;
+  }
