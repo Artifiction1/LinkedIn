@@ -1,4 +1,5 @@
-export const addToExp = (Exp) => ({
+export const addToExp = (Exp, target) => ({
     type: 'ADD_TO_EXP',
-    payload: Exp
+    payload: Exp,
+    target: target
 })
