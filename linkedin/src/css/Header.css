@@ -13,7 +13,7 @@
   border-radius: 50%;
   position: absolute;
   top: 90px;
-  left: 45px;
+  left: 30px;
 }
 
 .btns {
@@ -52,10 +52,10 @@
 
 .open-to-work {
   margin-top: 2rem;
-  border: 1px solid grey;
+  border: none;
   border-radius: 10px;
   padding: 10px;
-  background-color: rgb(176, 172, 172);
+  background-color: rgb(233, 230, 225);
 }
 .all-details {
   text-align: left;

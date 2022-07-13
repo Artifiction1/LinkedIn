@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import "../css/Header.css";
 import { fetchProfilesAction } from "../redux/actions/actions";
 import Experiences from "./Experiences";
+import ModalImage from "./ModalImage";
 import ModalProfile from "./ModalProfile";
 
 export default function Header() {
@@ -35,10 +36,9 @@ export default function Header() {
               alt="bgimage"
             />
           </div>
-          <img
-            src={profilesHave.image}
-            alt="user profile"
-            className="userImgUpdated"></img>
+
+          <ModalImage />
+
           <Button className="editButton">
             <i className="bi bi-pencil"></i>
           </Button>
@@ -61,7 +61,7 @@ export default function Header() {
                   <span className="contact-info">Contact info</span>
                 </button>
 
-                <Modal show={show} onHide={handleClose}>
+                <Modal show={show} onHide={handleClose} className="modal-image">
                   <Modal.Header closeButton>
                     <Modal.Title>Contact Info</Modal.Title>
                   </Modal.Header>
