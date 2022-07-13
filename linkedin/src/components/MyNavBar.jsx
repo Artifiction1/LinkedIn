@@ -15,7 +15,7 @@ const MyNavbar = () => {
       <i id="linkedinIcon" className="bi bi-linkedin"></i>
       <div style={{backgroundColor: "#eef3f8", width: "280px", height:"34px"}} className="d-flex justify-content-left align-items-center">
       <i className="bi bi-search mx-3" style={{color: "grey", fontSize:"16px"}}></i>
-      <Form inline id="searchBar" className="d-none d-md-inline-block">
+      <Form id="searchBar" className="d-none d-md-inline-block">
         <FormControl
           type="text"
           placeholder="Search"
