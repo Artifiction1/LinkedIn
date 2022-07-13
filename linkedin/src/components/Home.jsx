@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import "../css/Home.css";
 import PostAddSection from "./PostAddSection";
 import AddToFeed from "./AddToFeed";
+import HeaderLeft from "./HeaderLeft";
+import FooterRight from "./FooterRight";
 
 
 
@@ -53,7 +55,7 @@ const Home = () => {
     <Container style={{ marginTop: "100px" }}>
       <Row>
         <Col xs={12} md={4} lg={2} style={{ height: "100%" }}>
-          <LeftSideBarCardProfile profile={profile} />
+          <HeaderLeft profile={profile} />
         </Col>
 
         <Col xs={12} md={8} lg={6} style={{ height: "100%" }}>
@@ -147,7 +149,9 @@ const Home = () => {
         </Col>
         <Col md={4} className="d-none d-md-block" style={{ height: "100%" }}>
           <AddToFeed />
+          <FooterRight />
         </Col>
+
       </Row>
     </Container>
 

@@ -6,7 +6,7 @@ const AddToFeed = () => {
     <Container id="feedContainer">
       <div className="d-flex justify-content-between mt-2">
         <div id="titleFeedCard">Add to your feed</div>
-        <i id="infoIcon" class="bi bi-info-square-fill"></i>
+        <i id="infoIcon" className="bi bi-info-square-fill"></i>
       </div>
       <Col>
         <Row className="pl-0 my-3 feedProfile">
@@ -19,7 +19,7 @@ const AddToFeed = () => {
                 className="rounded-pill ButtonFollow"
                 variant="outline-secondary"
               >
-                <i class="bi bi-plus"></i>
+                <i className="bi bi-plus"></i>
                 Follow
               </div>
             </div>
@@ -35,7 +35,7 @@ const AddToFeed = () => {
                 className="rounded-pill ButtonFollow"
                 variant="outline-secondary"
               >
-                <i class="bi bi-plus"></i>
+                <i className="bi bi-plus"></i>
                 Follow
               </div>
             </div>
@@ -51,7 +51,7 @@ const AddToFeed = () => {
                 className="ButtonFollow"
                
               >
-                <i class="bi bi-plus"></i>
+                <i className="bi bi-plus"></i>
                 Follow
               </div>
             </div>
@@ -60,7 +60,7 @@ const AddToFeed = () => {
         <Row>
           <div className="d-flex feedProfile" id="viewAllRecomandation">
             <div className="mt-1">View All Recommandation</div>
-            <i class="bi bi-arrow-right ml-2 " id="arrowFeed"></i>
+            <i className="bi bi-arrow-right ml-2 " id="arrowFeed"></i>
           </div>
         </Row>
       </Col>

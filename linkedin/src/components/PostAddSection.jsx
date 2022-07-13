@@ -10,7 +10,7 @@ const PostAddSection = (props) => {
       <div className="d-flex">
         
       <Link to=" ">
-          <Image alt="profile-image" src=/*{props.a.b}*/""></Image>
+          <Image alt="profile-image" src=/*{props.a.b}*/"https://wallpaperaccess.com/full/2213426.jpg"></Image>
         </Link>
     
         <Button
