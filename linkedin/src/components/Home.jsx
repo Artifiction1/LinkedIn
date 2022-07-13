@@ -1,9 +1,12 @@
 import { Col, Container, Row } from "react-bootstrap"
 import LeftSideBarCardProfile from "./LeftSideBarCardProfile"
 import RightSideBar from "./RightSideBar"
+import { connect } from 'react-redux'
+import { useEffect, useState } from "react";
 
 
-const Home = () => {
+
+const Home = (postsTwo) => {
     const [posts, setPosts] = useState([]);
     const [ profile , setProfile ] = useState([])
     const fetchPosts = async () => {
@@ -57,8 +60,9 @@ const Home = () => {
         <LeftSideBarCardProfile profile={profile}/>
       </Col>
       <Col xs={12} md={8} lg={6} style={{ height: "100%" }}>
-        <NewPost profile={profile} setPosts={setPosts} posts={posts} fetchPosts={fetchPosts} />
-        <ExistingPosts profile={profile} posts={posts} fetchPosts={fetchPosts} />
+        {/* <NewPost profile={profile} setPosts={setPosts} posts={posts} fetchPosts={fetchPosts} />
+        <ExistingPosts profile={profile} posts={posts} fetchPosts={fetchPosts} /> */}
+        <div>{postsTwo.text}</div>
       </Col>
 
       <Col md={4} className="d-none d-md-block" style={{ height: "100%" }}>

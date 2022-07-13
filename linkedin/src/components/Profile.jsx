@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import Footer from "./Footer";
+import GetPosts from "./GetPosts";
 
 const Profile = () => {
   const params = useParams();
@@ -55,6 +56,7 @@ const Profile = () => {
         </Col>
       </Row>
     </Container>
+    
     </>
   );
 };

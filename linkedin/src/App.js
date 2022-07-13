@@ -5,6 +5,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import MyNavbar from './components/MyNavBar';
 import Profile from './components/Profile';
 import Footer from './components/Footer';
+import GetPosts from './components/GetPosts';
+import Home from './components/Home';
 
 function App() {
   return (
@@ -12,9 +14,11 @@ function App() {
       <BrowserRouter>
       <MyNavbar />
       <Routes>
-      <Route path='/' element={<Profile />}/>
+      {/* <Route path='/' element={<Profile />}/> */}
+      <Route path='/' element={<Home />}/>
+      
       </Routes>
-      <Footer />
+     
       </BrowserRouter>
     </div>
   );
