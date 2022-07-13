@@ -1,5 +1,4 @@
-
-import "../CssStyles/LeftSideBarCardProfile.css"
+import '../css/LeftSideBarCardProfile.css'
 
 const LeftSideBarCardProfile = ({profile}) => {
   return (

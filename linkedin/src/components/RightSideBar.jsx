@@ -2,7 +2,7 @@ import { Button, Col, Container, Row } from "react-bootstrap"
 import { Plus } from "react-bootstrap-icons";
 import { ArrowRight } from "react-bootstrap-icons";
 import { InfoSquareFill } from "react-bootstrap-icons"
-import "../CssStyles/RightSideBarHome.css"
+import "../css/RightSideBarHome.css"
 
 
 const RightSideBar = () => {

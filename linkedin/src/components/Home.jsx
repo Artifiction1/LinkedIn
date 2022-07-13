@@ -2,7 +2,7 @@ import { Col, Container, Modal, Row, Form, Button } from "react-bootstrap"
 import LeftSideBarCardProfile from "./LeftSideBarCardProfile"
 import RightSideBar from "./RightSideBar"
 import { useEffect, useState } from "react";
-import "../CssStyles/Home.css";
+import "../css/Home.css";
 import PostAddSection from "./PostAddSection";
 import AddToFeed from "./AddToFeed";
 
