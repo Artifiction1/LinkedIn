@@ -1,0 +1,82 @@
+#titleFeedCard {
+  font-weight: bold;
+}
+
+#infoIcon {
+  font-size: 15px;
+}
+
+.imgFeed {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  padding-left: 0;
+}
+
+#feedContainer {
+  background-color: white;
+  border-radius: 0.5rem;
+  border: 1px solid rgb(211, 211, 211);
+}
+
+.feedTitle {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.feedJobType {
+  font-size: 13px;
+  color: grey;
+}
+
+.ButtonFollow {
+  border-radius: 1rem;
+  border-width: 1px;
+  border-style: solid;
+  background-color: white;
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: 600;
+  border-color: rgba(0, 0, 0, 0.6);
+  border-width: 1.5px;
+  font-size: 16px;
+  padding: 3px 16px !important;
+}
+
+.ButtonFollow:hover {
+  cursor: pointer;
+  background-color: rgb(221, 221, 221);
+}
+
+#viewAllRecomandation {
+  font-size: 12px;
+  font-weight: bold;
+  color: grey;
+}
+
+.feedProfile:hover {
+  cursor: pointer;
+}
+
+#arrowFeed:hover {
+  background-color: rgb(221, 221, 221);
+  height: 100%;
+  border-radius: 50%;
+}
+
+.imgPromoted {
+  width: 50px;
+  height: 50px;
+  padding-left: 0;
+}
+
+.infoPromoted {
+  width: 170px;
+  padding-right: 0px;
+}
+
+.feedJobType {
+  width: 140px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
