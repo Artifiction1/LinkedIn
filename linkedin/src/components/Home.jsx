@@ -3,6 +3,7 @@ import LeftSideBarCardProfile from "./LeftSideBarCardProfile"
 import RightSideBar from "./RightSideBar"
 import { useEffect, useState } from "react";
 import "../CssStyles/Home.css";
+import PostAddSection from "./PostAddSection";
 
 
 
@@ -43,26 +44,24 @@ const Home = () => {
 
 
 
-  return (<><div>{posts.reverse().slice(0, 50).map((current, index) => {
-    if (current.user) {
-      return (
-
-
-        <Container style={{ marginTop: "100px" }}>
+  return (<><div>
+    <Container style={{ marginTop: "100px" }}>
           <Row>
             <Col xs={12} md={4} lg={2} style={{ height: "100%" }}>
               <LeftSideBarCardProfile profile={profile} />
             </Col>
-            <Col xs={12} md={8} lg={6} style={{ height: "100%" }}>
-              {/* <NewPost profile={profile} setPosts={setPosts} posts={posts} fetchPosts={fetchPosts} />
-        <ExistingPosts profile={profile} posts={posts} fetchPosts={fetchPosts} /> */}
-              {/* <div>{postsTwo.text}</div> */}
+            
+  <Col xs={12} md={8} lg={6} style={{ height: "100%" }}>
+            <PostAddSection />
+            {posts.reverse().slice(0, 50).map((current, index) => {
+    if (current.user) {
+      return (
               <div className="news-feed d-flex flex-column">
                 {current.user._id === '62cbecece6c0300015918143' && (<>
                   <div className="align-self-end"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" className="bi bi-three-dots" viewBox="0 0 16 16">
                     <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
                   </svg></div></>)}
-
+                  
 
                 <div className="main-section">
                   <div className="top-part">
@@ -105,16 +104,28 @@ const Home = () => {
                   </svg><span>Send</span></div>
                 </div>
               </div>
-            </Col>
+        
+        
+           
 
+            
+      )
+    }
+  })}
+            </Col>
             <Col md={4} className="d-none d-md-block" style={{ height: "100%" }}>
               <RightSideBar />
             </Col>
           </Row>
         </Container>
-      )
-    }
-  })}</div></>
+    
+
+
+  
+              {/* <NewPost profile={profile} setPosts={setPosts} posts={posts} fetchPosts={fetchPosts} />
+        <ExistingPosts profile={profile} posts={posts} fetchPosts={fetchPosts} /> */}
+              {/* <div>{postsTwo.text}</div> */}
+              </div></>
   );
 };
 
