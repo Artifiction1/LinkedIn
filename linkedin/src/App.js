@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Profile from "./components/Profile";
 import Footer from "./components/Footer";
-import Home from './components/Home'
+import Home from "./components/Home";
 
 function App() {
   return (
