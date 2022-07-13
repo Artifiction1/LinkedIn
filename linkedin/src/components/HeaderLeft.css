@@ -9,9 +9,10 @@
 
 #headerMiniContainer {
   background-color: white;
-  border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
-
+  border-radius: 10px;
   border: 1px solid rgb(226, 225, 225);
+  padding-left: 20px !important;
+  padding-right: 20px !important;
 }
 
 button:focus-visible {
@@ -25,12 +26,13 @@ button:focus-visible {
 }
 
 #userImage {
-  height: 40%;
-  width: 30%;
+  height: 100px;
+  width: 100px;
   border-radius: 50%;
   position: relative;
   border: 2px solid white;
   top: -30px;
+  padding: 0;
 }
 
 .borderBottom {
@@ -38,14 +40,20 @@ button:focus-visible {
 }
 
 .fontSize {
-  font-size: 11px;
+  font-size: 13px;
 }
 
+#userName {
+  font-size: 20px;
+}
 #userName:hover {
   text-decoration: underline;
   cursor: pointer;
 }
-
+.items {
+  text-align: left;
+  margin: 10px 0;
+}
 .headerMiniTag:hover {
   background-color: rgba(241, 229, 229, 0.699);
   cursor: pointer;
