@@ -103,39 +103,43 @@ const MyNavbar = () => {
               />
             </Form>
             {filteredData.length !== 0 && (
-              <div>
+              <ListGroup
+                style={{
+                  position: "absolute",
+                  top: "50px",
+                  left: "237px",
+                  zIndex: "3",
+                }}>
                 {filteredData.slice(0, 10).map((profile) => {
                   return (
-                    <ListGroup>
-                      <div>
-                        <Link to={"/profile"}>
-                          <ListGroupItem
-                            className="search-list"
-                            onClick={() => onInputClick(true)}>
-                            {/* <img
-                        style={{
-                          width: "25px",
-                          height: "25px",
-                          borderRadius: "50%",
-                        }}
-                        src={profile.image}
-                        alt=""
-                      /> */}
-                            <span
-                              className="mx-3"
-                              style={{ color: "black", fontSize: "14px" }}>
-                              <strong>{profile.name}</strong>
-                            </span>
-                            <span style={{ color: "black", fontSize: "14px" }}>
-                              {profile.title}
-                            </span>
-                          </ListGroupItem>
-                        </Link>
-                      </div>
-                    </ListGroup>
+                    <ListGroupItem>
+                      <Link to={"/profile"}>
+                        <div
+                          className="search-list"
+                          onClick={() => onInputClick(true)}>
+                          <img
+                            style={{
+                              width: "25px",
+                              height: "25px",
+                              borderRadius: "50%",
+                            }}
+                            src={profile.image}
+                            alt=""
+                          />
+                          <span
+                            className="mx-3"
+                            style={{ color: "black", fontSize: "14px" }}>
+                            <strong>{profile.name}</strong>
+                          </span>
+                        </div>
+                      </Link>
+                      <span style={{ color: "black", fontSize: "14px" }}>
+                        {profile.title}
+                      </span>
+                    </ListGroupItem>
                   );
                 })}
-              </div>
+              </ListGroup>
             )}
           </div>
 
