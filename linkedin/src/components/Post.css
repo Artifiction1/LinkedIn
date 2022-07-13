@@ -1,0 +1,91 @@
+/*This if for the whole container*/
+.single-post {
+
+    background-color: white;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 0.8rem;
+    border-width: 1px;
+    border-color: #e9e5df;
+    border-style: solid;
+    font-size: 14px;
+  }
+
+/*This is for profile picture*/
+.single-post a>img:first-child {
+    border-radius: 50%;
+    object-fit: cover;
+    height:48px;
+    width:48px;
+    margin-right: 0.5rem;
+}
+
+/*This is for profile name*/
+.single-post .person-name {
+    font-weight: 600 
+}
+
+/*This is for profile info*/
+.single-post .person-title {
+    width: 400px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+/*This is for post info*/
+.single-post .post-details{
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+}
+
+/* This is for all buttons in this section */
+.single-post .post-buttons:hover,
+.single-post .more-button:hover
+{
+  background-color: rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.6);
+} 
+
+/*This is for three dots button in the header section*/
+.single-post .more-button{
+    width: 24px;
+    height: 24px;
+    background: none;
+    color: rgba(0, 0, 0, 0.6);
+    border: none;
+    border-radius: 50%;
+  }
+
+/*This is for the Image in the post body */
+
+.single-post > img {
+  width: 100%;
+  margin-top: 0.75rem;
+}
+/*This is for the buttons in the footer of the section*/
+.single-post .post-buttons {
+    background: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.6);
+    border: none;
+    padding: 10px 8px;
+    width: 100%;
+  }
+
+/*This is for the icons of the buttons in the footer of the section*/
+  .single-post .post-buttons i {
+    font-size: 20px;
+    font-weight: 900;
+    margin-right: 0.25rem
+  }
+
+  .single-post .post-buttons i span {
+    font-size: 14px;
+    font-weight: 500;
+    font-style:normal;
+    margin-left: 0.25rem
+  }

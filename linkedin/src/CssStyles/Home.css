@@ -3,6 +3,7 @@
     border: 1px solid rgb(199, 195, 195);
     justify-content: space-between;
     border-radius: 5px;
+    margin-bottom: 12px;
 }
 .d-flex.bottom-icons {
     justify-content: space-around;
