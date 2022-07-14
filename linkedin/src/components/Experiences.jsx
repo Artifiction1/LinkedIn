@@ -9,6 +9,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addToExp } from "../redux/actions/actions";
 import { connect } from "react-redux";
+import ExpComponent from "./ExpComponent";
 
 const mapStateToProps = (state)=>{
     return{ 
@@ -25,7 +26,7 @@ const Experiences = ({Experience, addToExperience}) => {
   const handleShow = () => setShow(true);
 const [toggle, setToggle] = useState(false)
 
-let SpecificExp = 'https://striveschool-api.herokuapp.com/api/profile/62cbecece6c0300015918143/experiences/'
+
 
   console.log(toggle)
     const [lastToggle, setlastToggle] = useState(true)
@@ -82,39 +83,6 @@ let SpecificExp = 'https://striveschool-api.herokuapp.com/api/profile/62cbecece6
   }};
 
 
-  const PostExperiences = async (method,id) => {
-    let bodys = { 
-        'area' : Experience.area,
-        "company": Experience.Company,
-        "description": Experience.description,
-        "role": Experience.role,
-        "startDate": Experience.startDate,
-        "endDate": Experience.endDate
-        
-        }
-    try {
-        const resolve = await fetch(SpecificExp+id, {
-               method: method,
-            headers: {
-                'Accept' : 'application/json, text/plain, /',
-        'Content-type': 'application/json', 
-                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmNiZWNlY2U2YzAzMDAwMTU5MTgxNDMiLCJpYXQiOjE2NTc1MzE2MjgsImV4cCI6MTY1ODc0MTIyOH0.Ueo_M62QO05ffN1aYIPJjOyI14bH3uldPPo-OlagobM"
-            },
-            body: JSON.stringify(bodys)
-            })
-            if (method === 'PUT'){
-                const changed = await resolve.json()
-                console.log(changed)
-                FetchExperiences('GET')
-            }else{console.log('deleted')
-            FetchExperiences('GET')}
-    }
-    catch (error) {
-        console.log(error)
-    }
-}
-
-
   const fixDate = (date) => {
     try {
       return format(parseISO(date), "yyyy MMMM");
@@ -122,7 +90,9 @@ let SpecificExp = 'https://striveschool-api.herokuapp.com/api/profile/62cbecece6
       return `Present`;
     }
   };
-  
+  useEffect(() => {
+    FetchExperiences('GET')
+}, [Experience.description])
   useEffect(() => {
     FetchExperiences('GET')
 }, [])
@@ -228,48 +198,7 @@ if(NewExperiences.length>0){
             <span id="eduFontSize">{exp.area}</span>
           </div>)}
           {toggle === true && (
-            <div className="m-1 ml-4 d-flex flex-column text-left">
-            <InputGroup size="sm" className="">
-        <Form.Control
-          aria-label="Small"
-          aria-describedby="inputGroup-sizing-sm"
-          placeholder="Role"
-          onChange={(e)=>{addToExperience(e.target.value,'role')}}
-        />
-      </InputGroup>
-      <InputGroup size="sm" className="">
-        <Form.Control
-          aria-label="Small"
-          aria-describedby="inputGroup-sizing-sm"
-          placeholder="company"
-          onChange={(e)=>{addToExperience(e.target.value,'company')}}
-        />
-      </InputGroup>
-      
-      <InputGroup className="">
-      <Form.Control aria-label="First name" 
-          onChange={(e)=>{addToExperience(e.target.value,'startDate')}}
-          placeholder="startDate"/>
-      <Form.Control aria-label="Last name" 
-      onChange={(e)=>{addToExperience(e.target.value,'endDate')}} 
-      placeholder="endDate"/>
-    </InputGroup>
-              
-      <InputGroup size="sm" className="">
-        <Form.Control
-          aria-label="Small"
-          aria-describedby="inputGroup-sizing-sm"
-          placeholder="Location"
-          onChange={(e)=>addToExperience(e.currentTarget.value,'area')}
-        />
-      </InputGroup>
-      <div className="d-flex justify-content-between">
-      <Button style={{backgroundColor: 'red', color: 'white'}}
-      onClick = {()=> { PostExperiences("PUT", exp._id)}}
-      >save</Button>
-      <Button style={{backgroundColor: 'red', color: 'white'}}
-      onClick={() => {PostExperiences("DELETE",exp._id)}}>DELETE</Button>
-          </div></div>
+            <ExpComponent experience = {exp}/>
           )}
         </div>
       </div>
