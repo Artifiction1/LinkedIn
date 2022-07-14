@@ -5,6 +5,7 @@ import Form from 'react-bootstrap/Form';
 import { Button } from "react-bootstrap";
 import { addToExp } from "../redux/actions/actions";
 import { connect } from "react-redux";
+import FileUpload from "./FileUpload";
 
 const mapStateToProps = (state)=>{
     return{ 
@@ -62,13 +63,15 @@ const ExpComponent = ({experience, addToExperience, Experience}) => {
     setEndDate(experience.endDate)
     setArea(experience.area)},[])
     return (
+      <>
+      <FileUpload/>
         <div className="m-1 ml-4 d-flex flex-column text-left">
             <InputGroup size="sm" className="">
         <Form.Control
           aria-label="Small"
           aria-describedby="inputGroup-sizing-sm"
           placeholder="Role"
-          Value={Role}
+          value={Role}
           onChange={(e)=>setRole(e.target.value)}
         />
       </InputGroup>
@@ -76,7 +79,7 @@ const ExpComponent = ({experience, addToExperience, Experience}) => {
         <Form.Control
           aria-label="Small"
           aria-describedby="inputGroup-sizing-sm"
-          Value = {Company}
+          value = {Company}
           onChange={(e)=>setCompany(e.target.value)}
         />
       </InputGroup>
@@ -108,7 +111,7 @@ const ExpComponent = ({experience, addToExperience, Experience}) => {
       <Button style={{backgroundColor: 'red', color: 'white'}}
       onClick={() => {PostExperiences("DELETE",experience._id);addToExperience(Area, 'description'); console.log(Experience.description)}}>DELETE</Button>
           </div></div>
-    )
+    </>)
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(ExpComponent);

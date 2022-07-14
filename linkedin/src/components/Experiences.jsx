@@ -209,6 +209,8 @@ const Experiences = ({ Experience, addToExperience }) => {
           <div className="d-flex justify-content-between" key={exp._id}>
             <div className="mt-3">
               <div className="d-flex">
+                {toggle === false && (
+                  <>
                 <img
                   src="https://media-exp2.licdn.com/dms/image/C4D0BAQEFWO_s8a0FHQ/company-logo_200_200/0/1647618816994?e=1665619200&amp;v=beta&amp;t=hzqVGRvol3rh_0b7B5xMv2kmIgcVfGUICHu6g2OYAus"
                   loading="lazy"
@@ -216,7 +218,7 @@ const Experiences = ({ Experience, addToExperience }) => {
                   height="68px"
                   alt="EPICODE logo"
                 />
-                {toggle === false && (
+                
                   <div className="m-1 ml-4 d-flex flex-column text-left">
                     <h6>{exp.role}</h6>
                     <span id="eduFontSize">{exp.company}</span>
@@ -229,7 +231,7 @@ const Experiences = ({ Experience, addToExperience }) => {
                     </span>
                     <span id="eduFontSize">{exp.area}</span>
                   </div>
-                )}
+                </>)}
                 {toggle === true && <ExpComponent experience={exp} />}
               </div>
             </div>
