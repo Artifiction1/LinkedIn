@@ -5,6 +5,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import SideBar from "./SideBar";
 import { useEffect, useState } from "react";
 import Header from "./Header";
+import Learn from "./Learn";
 
 const Profile = () => {
   /* const params = useParams();
@@ -54,6 +55,7 @@ const Profile = () => {
             </Col>
             <Col md={3} className="px-0">
               <SideBar />
+              <Learn />
             </Col>
           </Row>
         </Container>

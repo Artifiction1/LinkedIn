@@ -1,11 +1,9 @@
 /** @format */
 
 .modal-content {
-  border: 1px solid #1d2226;
   border-radius: 30px;
 }
 .modal-image {
-  background-color: #1d2226 !important;
   border-radius: 20px !important;
   color: white;
   overflow: hidden;

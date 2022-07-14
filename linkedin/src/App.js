@@ -7,6 +7,7 @@ import NavBar from "./components/NavBar";
 import Profile from "./components/Profile";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
+import UserProfile from "./components/UserProfile";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path="/userprofile" element={<Profile />} />
           <Route path="/" element={<Home />} />
+          <Route path="/user/:userId" element={<UserProfile />} />
         </Routes>
         <Footer />
       </BrowserRouter>
