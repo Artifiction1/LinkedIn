@@ -34,12 +34,10 @@ const HeaderLeft = (props) => {
   return (
     <Container id="headerMiniContainer">
       <Col className="d-flex flex-column justify-content-center">
-        <Row>
-          <Image
-            src="https://media-exp2.licdn.com/dms/image/C4D16AQHmxrz58chkGQ/profile-displaybackgroundimage-shrink_200_800/0/1655924719323?e=1663200000&v=beta&t=UdIxq-awJA4w0g8X7fLO1nWsblAfd-PQaH2m06dKPR0"
-            id="backgroundImage"
-          />
-        </Row>
+        <Image
+          src="https://media-exp2.licdn.com/dms/image/C4D16AQHmxrz58chkGQ/profile-displaybackgroundimage-shrink_200_800/0/1655924719323?e=1663200000&v=beta&t=UdIxq-awJA4w0g8X7fLO1nWsblAfd-PQaH2m06dKPR0"
+          id="backgroundImage"
+        />
         <Row className="d-flex flex-column align-items-center borderBottom ">
           <Image src={profile.image} id="userImage" className="mx-auto" />
           <div className="mb-3 mt-n3 text-center">
