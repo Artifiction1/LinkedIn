@@ -9,6 +9,9 @@
   margin-bottom: 12px;
   background-color: white;
 }
+.person-name {
+  justify-content: left;
+}
 .d-flex.bottom-icons {
   justify-content: space-around;
   margin-bottom: 15px;

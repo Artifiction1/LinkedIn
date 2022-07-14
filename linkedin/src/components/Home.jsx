@@ -142,15 +142,15 @@ const Home = () => {
                             alt="userimage"
                           />
                           <div className="user-details">
-                            <span className="person-name d-block">
+                            <span className="person-name d-flex flex-column">
                               {current.username}
                             </span>
-                            <span className="person-title d-block">
+                            <span className="person-title d-flex flex-column">
                               {" "}
                               122 followers
                             </span>
 
-                            <span className="post-details d-block">
+                            <span className="post-details d-flex flex-column">
                               <i
                                 className="bi bi-globe"
                                 style={{ fontSize: "12px" }}></i>

@@ -129,3 +129,9 @@
 .skills-div {
   height: 60px;
 }
+.modal-body {
+  color: black !important;
+}
+.modal-header {
+  color: black !important;
+}

@@ -16,6 +16,11 @@ const UserProfile = () => {
   const params = useParams();
   const userId = params.userId;
 
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   useEffect(() => {
     fetchUserData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -72,9 +77,23 @@ const UserProfile = () => {
               <div className="mt-n1">{userProfileData.title}</div>
               <div style={{ fontSize: "14px" }} className="text-muted">
                 {userProfileData.area}
-                <button className="contact-btn">
+                <button className="contact-btn" onClick={handleShow}>
                   <span className="contact-info">Contact info</span>
                 </button>
+                <Modal show={show} onHide={handleClose} className="modal-image">
+                  <Modal.Header closeButton>
+                    <Modal.Title>Contact Info</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>
+                    <i className="bi bi-envelope mail-icon"> Email</i>
+                    <div className="mail">{userProfileData.email}</div>
+                  </Modal.Body>
+                  <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                      Close
+                    </Button>
+                  </Modal.Footer>
+                </Modal>
               </div>
               <div style={{ fontSize: "14px" }} className="mt-2">
                 <span>500+ connections</span>
