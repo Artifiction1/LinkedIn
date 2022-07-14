@@ -10,28 +10,30 @@ const AddToFeed = () => {
         <div id="titleFeedCard">Add to your feed</div>
         <i id="infoIcon" class="bi bi-info-square-fill"></i>
       </div>
-      <Row>
-        <div className="pl-0 my-3 feedProfile">
-          <Col md={3}>
-            <Image className="imgFeed pl-0" src="https://picsum.photos/200" />
-          </Col>
-          <Col md={9}>
-            <div>
-              <div className="feedTitle">Raja</div>
-              <div className="feedJobType">Epicode Student</div>
-              <div className="d-flex flex-row">
-                <div
-                  className="rounded-pill ButtonFollow"
-                  variant="outline-secondary">
-                  <i class="bi bi-plus"></i>
-                  Follow
-                </div>
+      <Col>
+        <Row className="pl-0 my-3 feedProfile">
+          <Image
+            className="imgFeed pl-0"
+            src="https://thumbs.dreamstime.com/z/caricature-presidential-candidate-donald-trump-character-portrait-giving-speech-70328509.jpg"
+          />
+          <div className="ml-2">
+            <div className="feedTitle">Raja</div>
+            <div className="feedJobType">Epicode Student</div>
+            <div className="d-flex flex-row">
+              <div
+                className="rounded-pill ButtonFollow"
+                variant="outline-secondary">
+                <i class="bi bi-plus"></i>
+                Follow
               </div>
             </div>
-          </Col>
-        </div>
-        <div className="pl-0 my-3 feedProfile">
-          <Image className="imgFeed pl-0" src="https://picsum.photos/200" />
+          </div>
+        </Row>
+        <Row className="pl-0 my-3 feedProfile">
+          <Image
+            className="imgFeed pl-0"
+            src="https://thumbs.dreamstime.com/z/caricature-presidential-candidate-donald-trump-character-portrait-giving-speech-70328509.jpg"
+          />
           <div className="ml-2">
             <div className="feedTitle">Agris</div>
             <div className="feedJobType">Epicode Student</div>
@@ -44,9 +46,12 @@ const AddToFeed = () => {
               </div>
             </div>
           </div>
-        </div>
-        <div className="pl-0 my-3 feedProfile">
-          <Image className="imgFeed pl-0" src="https://picsum.photos/200" />
+        </Row>
+        <Row className="pl-0 my-3 feedProfile">
+          <Image
+            className="imgFeed pl-0"
+            src="https://thumbs.dreamstime.com/z/caricature-presidential-candidate-donald-trump-character-portrait-giving-speech-70328509.jpg"
+          />
           <div className="ml-2">
             <div className="feedTitle">Ganesh</div>
             <div className="feedJobType">Epicode Student</div>
@@ -57,14 +62,14 @@ const AddToFeed = () => {
               </div>
             </div>
           </div>
-        </div>
-        <Col>
+        </Row>
+        <Row>
           <div className="d-flex feedProfile" id="viewAllRecomandation">
             <div className="mt-1">View All Recommandation</div>
             <i class="bi bi-arrow-right ml-2 " id="arrowFeed"></i>
           </div>
-        </Col>
-      </Row>
+        </Row>
+      </Col>
     </Container>
   );
 };

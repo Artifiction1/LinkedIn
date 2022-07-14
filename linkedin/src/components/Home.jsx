@@ -90,14 +90,10 @@ const Home = () => {
                           </Modal.Header>
                           <Modal.Body>
                             <Form>
-                              <div className="input-groups">
+                              <div>
                                 <Form.Group>
                                   <Form.Label>Name</Form.Label>
-                                  <Form.Control
-                                    className="input-fields"
-                                    type="text"
-                                    id="name"
-                                  />
+                                  <Form.Control type="text" id="name" />
                                 </Form.Group>
                               </div>
                             </Form>
@@ -206,10 +202,7 @@ const Home = () => {
                   }
                 })}
             </Col>
-            <Col
-              md={3}
-              className="d-none d-md-block"
-              style={{ height: "100%" }}>
+            <Col md={3}>
               <AddToFeed />
               <FooterRight />
             </Col>

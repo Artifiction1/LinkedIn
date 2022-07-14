@@ -113,7 +113,7 @@ const MyNavbar = () => {
                 {filteredData.slice(0, 10).map((profile) => {
                   return (
                     <ListGroupItem>
-                      <Link to={"/profile"}>
+                      <Link to={`/user/${profile._id}`}>
                         <div
                           className="search-list"
                           onClick={() => onInputClick(true)}>
