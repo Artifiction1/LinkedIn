@@ -12,14 +12,14 @@ import ModalProfile from "./ModalProfile";
 
 export default function Header() {
   const profilesHave = useSelector((state) => state.fetchedProfiles);
-
+ 
   const dispatch = useDispatch();
 
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
+  
   useEffect(() => {
     dispatch(fetchProfilesAction());
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -109,32 +109,9 @@ export default function Header() {
       <div className="about-me">
         <h3>About me</h3>
         <p>{profilesHave.bio}</p>
-      </div>
-      <div className="experiences">
-        <div className="div-edu">
-          <h3>Experience</h3>
-          <Plus
-            size="2.5rem"
-            style={{
-              cursor: "pointer",
-              marginLeft: "46rem",
-              marginTop: "-5rem",
-            }}
-          />
-          <Pencil
-            size="1.2rem"
-            style={{
-              cursor: "pointer",
-              marginLeft: "50rem",
-              marginTop: "-8rem",
-            }}
-          />
-        </div>
+      </div>        
         <Experiences />
-        <hr></hr>
-        <Experiences />
-      </div>
-      <div className="education">
+        <div className="education">
         <div className="div-edu">
           <h3>Education</h3>
           <Plus

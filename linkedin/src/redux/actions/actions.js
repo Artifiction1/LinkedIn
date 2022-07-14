@@ -32,6 +32,12 @@ export const fetchProfilesAction = () => {
   };
 };
 
+export const addToExp = (Exp, target) => ({
+  type: 'ADD_TO_EXP',
+  payload: Exp,
+  target: target
+})
+
 export const editProfileAction = () => {
   return async (dispatch) => {
     try {
