@@ -7,6 +7,9 @@
   padding-right: 140px;
   background-color: white;
   height: 55px;
+  position: sticky;
+  z-index: 4;
+  top: 0;
 }
 
 #linkedinIcon {

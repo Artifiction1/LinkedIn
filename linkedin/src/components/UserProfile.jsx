@@ -45,7 +45,7 @@ const UserProfile = () => {
   };
 
   return (
-    <Container>
+    <Container style={{ marginTop: "40px" }}>
       <Row>
         <Col md={9}>
           <div id="mainSection">
@@ -128,9 +128,49 @@ const UserProfile = () => {
                 }}
               />
             </div>
-            <Experiences />
+            <div className="d-flex justify-content-between">
+              <div className="mt-3">
+                <div className="d-flex">
+                  <img
+                    src="https://media-exp2.licdn.com/dms/image/C4D0BAQEFWO_s8a0FHQ/company-logo_200_200/0/1647618816994?e=1665619200&amp;v=beta&amp;t=hzqVGRvol3rh_0b7B5xMv2kmIgcVfGUICHu6g2OYAus"
+                    loading="lazy"
+                    width="68px"
+                    height="68px"
+                    alt="EPICODE logo"
+                  />
+                  <div className="m-1 ml-4 d-flex flex-column text-left">
+                    <h6>Front End Developer</h6>
+                    <span id="eduFontSize">Epicode</span>
+                    <span id="eduFontSize" className="text-muted">
+                      04/2022 - 08/2022
+                    </span>
+                    <span id="eduFontSize">HTML, CSS & JavaScript</span>
+                  </div>
+                </div>
+              </div>
+            </div>
             <hr></hr>
-            <Experiences />
+            <div className="d-flex justify-content-between">
+              <div className="mt-3">
+                <div className="d-flex">
+                  <img
+                    src="https://media-exp2.licdn.com/dms/image/C4D0BAQEFWO_s8a0FHQ/company-logo_200_200/0/1647618816994?e=1665619200&amp;v=beta&amp;t=hzqVGRvol3rh_0b7B5xMv2kmIgcVfGUICHu6g2OYAus"
+                    loading="lazy"
+                    width="68px"
+                    height="68px"
+                    alt="EPICODE logo"
+                  />
+                  <div className="m-1 ml-4 d-flex flex-column text-left">
+                    <h6>Front End Developer</h6>
+                    <span id="eduFontSize">Epicode</span>
+                    <span id="eduFontSize" className="text-muted">
+                      04/2022 - 08/2022
+                    </span>
+                    <span id="eduFontSize">HTML, CSS & JavaScript</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div className="education">
             <div className="div-edu">

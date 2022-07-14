@@ -19,7 +19,6 @@ function App() {
           <Route path="/userprofile" element={<Profile />} />
           <Route path="/" element={<Home />} />
           <Route path="/user/:userId" element={<UserProfile />} />
-          <Route path="/post" element={<Post />} />
         </Routes>
         <Footer />
       </BrowserRouter>

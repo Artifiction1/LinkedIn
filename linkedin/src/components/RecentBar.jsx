@@ -5,7 +5,7 @@ import { Container, Col, Row, Button } from "react-bootstrap";
 
 const RecentBar = () => {
   return (
-    <>
+    <div className="whole-recent">
       <Button className="tag-button d-block d-md-none">
         Show More{" "}
         <i
@@ -74,7 +74,7 @@ const RecentBar = () => {
           style={{ fontSize: "13px" }}
           className="bi bi-chevron-compact-up"></i>
       </Button>
-    </>
+    </div>
   );
 };
 

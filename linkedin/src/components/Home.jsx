@@ -18,6 +18,7 @@ import AddToFeed from "./AddToFeed";
 import HeaderLeft from "./HeaderLeft";
 import FooterRight from "./FooterRight";
 import RecentBar from "./RecentBar";
+import HomeFeed from "./HomeFeed";
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
@@ -114,9 +115,9 @@ const Home = () => {
 
   return (
     <div>
-      <Container style={{ marginTop: "100px" }}>
+      <Container style={{ marginTop: "30px" }}>
         <Row>
-          <Col xs={12} md={4} lg={3} style={{ height: "100%" }}>
+          <Col xs={12} md={4} lg={3}>
             <HeaderLeft profile={profile} />
             <RecentBar />
           </Col>
@@ -236,7 +237,7 @@ const Home = () => {
             </Modal>
           </Col>
           <Col md={3}>
-            <AddToFeed />
+            <HomeFeed />
             <FooterRight />
           </Col>
         </Row>

@@ -111,7 +111,6 @@ const Sidebar = () => {
 
                 {/* Name & Surname */}
                 <div className="profile-details ml-4 mb-2">
-                  {/*  <Link to={"/user/" + profile._id}> */}
                   <div
                     className="profile-name"
                     onClick={() => {
@@ -119,7 +118,6 @@ const Sidebar = () => {
                     }}>
                     {profile.name} {profile.surname}
                   </div>
-                  {/*  </Link> */}
 
                   {/* Title */}
                   <div className="profile-title">{profile.title}</div>
@@ -138,7 +136,7 @@ const Sidebar = () => {
           ))}
         </div>
       </div>
-      <div className="people pt-3 ">
+      <div className="people pt-3">
         <span className="pl-3 pb-3 text">People you may know</span>
         <div className="pl-3 pt-2">
           {/* Loading profiles from fetched data */}
