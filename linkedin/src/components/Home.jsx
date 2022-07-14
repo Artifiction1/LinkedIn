@@ -15,6 +15,15 @@ const Home = () => {
   const [posts, setPosts] = useState([]);
   const [profile, setProfile] = useState([])
 
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+
+  useEffect(() => {
+    fetchPosts();
+  }, []);
 
   const fetchPosts = async () => {
     try {
@@ -42,14 +51,8 @@ const Home = () => {
   }
 
 
-  useEffect(() => {
-    fetchPosts();
-  }, []);
 
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  
 
   return (<><div>
     <Container style={{ marginTop: "100px" }}>
