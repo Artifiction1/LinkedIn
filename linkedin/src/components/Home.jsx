@@ -116,13 +116,13 @@ const Home = () => {
   return (
     <div>
       <Container style={{ marginTop: "30px" }}>
-        <Row>
+        <Row className="justify-content-center">
           <Col xs={12} md={4} lg={3}>
             <HeaderLeft profile={profile} />
             <RecentBar />
           </Col>
 
-          <Col xs={12} md={8} lg={6} style={{ height: "100%" }}>
+          <Col xs={12} md={8} lg={5} style={{ height: "100%" }}>
             <PostAddSection />
             {posts
               .reverse()

@@ -26,12 +26,10 @@ const Experiences = ({ Experience, addToExperience }) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [toggle, setToggle] = useState(false);
-  const [changed, setChanged] = useState ('')
+  const [changed, setChanged] = useState("");
   console.log(toggle);
   const [lastToggle, setlastToggle] = useState(true);
   const [NewExperiences, setNewExperiences] = useState([]);
-  
-
 
   const FetchExperiences = async (method) => {
     let bodys = {
@@ -200,8 +198,8 @@ const Experiences = ({ Experience, addToExperience }) => {
               marginTop: "-8rem",
             }}
             onClick={async () => {
-             setToggle(!toggle);
-             FetchExperiences('GET')
+              setToggle(!toggle);
+              FetchExperiences("GET");
             }}
           />
         </div>
@@ -211,33 +209,34 @@ const Experiences = ({ Experience, addToExperience }) => {
               <div className="d-flex">
                 {toggle === false && (
                   <>
-                <img
-                  src="https://media-exp2.licdn.com/dms/image/C4D0BAQEFWO_s8a0FHQ/company-logo_200_200/0/1647618816994?e=1665619200&amp;v=beta&amp;t=hzqVGRvol3rh_0b7B5xMv2kmIgcVfGUICHu6g2OYAus"
-                  loading="lazy"
-                  width="68px"
-                  height="68px"
-                  alt="EPICODE logo"
-                />
-                
-                  <div className="m-1 ml-4 d-flex flex-column text-left">
-                    <h6>{exp.role}</h6>
-                    <span id="eduFontSize">{exp.company}</span>
-                    <span id="eduFontSize" className="text-muted">
-                      {exp.startDate.substr(0, 10)} -{" "}
-                      {exp.endDate !== undefined && (
-                        <span>{exp.endDate.substr(0, 10)}</span>
-                      )}{" "}
-                      {exp.endDate === undefined && <span>now</span>}
-                    </span>
-                    <span id="eduFontSize">{exp.area}</span>
-                  </div>
-                </>)}
+                    <img
+                      src="https://media-exp2.licdn.com/dms/image/C4D0BAQEFWO_s8a0FHQ/company-logo_200_200/0/1647618816994?e=1665619200&amp;v=beta&amp;t=hzqVGRvol3rh_0b7B5xMv2kmIgcVfGUICHu6g2OYAus"
+                      loading="lazy"
+                      width="68px"
+                      height="68px"
+                      alt="EPICODE logo"
+                    />
+
+                    <div className="m-1 ml-4 d-flex flex-column text-left">
+                      <h6>{exp.role}</h6>
+                      <span id="eduFontSize">{exp.company}</span>
+                      <span id="eduFontSize" className="text-muted">
+                        {exp.startDate.substr(0, 10)} -{" "}
+                        {exp.endDate !== undefined && (
+                          <span>{exp.endDate.substr(0, 10)}</span>
+                        )}{" "}
+                        {exp.endDate === undefined && <span>now</span>}
+                      </span>
+                      <span id="eduFontSize">{exp.area}</span>
+                    </div>
+                    <hr style={{ color: "blue" }} />
+                  </>
+                )}
                 {toggle === true && <ExpComponent experience={exp} />}
               </div>
             </div>
           </div>
         ))}
-        <hr></hr>
       </div>
     );
   } else {
