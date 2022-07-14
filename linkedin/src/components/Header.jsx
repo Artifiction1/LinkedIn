@@ -7,18 +7,19 @@ import { useDispatch, useSelector } from "react-redux";
 import "../css/Header.css";
 import { fetchProfilesAction } from "../redux/actions/actions";
 import Experiences from "./Experiences";
+import ModalImage from "./ModalImage";
 import ModalProfile from "./ModalProfile";
 
 export default function Header() {
   const profilesHave = useSelector((state) => state.fetchedProfiles);
-
+ 
   const dispatch = useDispatch();
 
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
+  
   useEffect(() => {
     dispatch(fetchProfilesAction());
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -35,10 +36,9 @@ export default function Header() {
               alt="bgimage"
             />
           </div>
-          <img
-            src={profilesHave.image}
-            alt="user profile"
-            className="userImgUpdated"></img>
+
+          <ModalImage />
+
           <Button className="editButton">
             <i className="bi bi-pencil"></i>
           </Button>
@@ -61,7 +61,7 @@ export default function Header() {
                   <span className="contact-info">Contact info</span>
                 </button>
 
-                <Modal show={show} onHide={handleClose}>
+                <Modal show={show} onHide={handleClose} className="modal-image">
                   <Modal.Header closeButton>
                     <Modal.Title>Contact Info</Modal.Title>
                   </Modal.Header>
@@ -109,32 +109,9 @@ export default function Header() {
       <div className="about-me">
         <h3>About me</h3>
         <p>{profilesHave.bio}</p>
-      </div>
-      <div className="experiences">
-        <div className="div-edu">
-          <h3>Experience</h3>
-          <Plus
-            size="2.5rem"
-            style={{
-              cursor: "pointer",
-              marginLeft: "46rem",
-              marginTop: "-5rem",
-            }}
-          />
-          <Pencil
-            size="1.2rem"
-            style={{
-              cursor: "pointer",
-              marginLeft: "50rem",
-              marginTop: "-8rem",
-            }}
-          />
-        </div>
+      </div>        
         <Experiences />
-        <hr></hr>
-        <Experiences />
-      </div>
-      <div className="education">
+        <div className="education">
         <div className="div-edu">
           <h3>Education</h3>
           <Plus

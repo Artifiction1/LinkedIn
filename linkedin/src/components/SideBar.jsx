@@ -111,15 +111,15 @@ const Sidebar = () => {
 
                 {/* Name & Surname */}
                 <div className="profile-details ml-4 mb-2">
-                  <Link to={"/profile/" + profile._id}>
-                    <div
-                      className="profile-name"
-                      onClick={() => {
-                        navigate.push(`/profile/${profile._id}`);
-                      }}>
-                      {profile.name} {profile.surname}
-                    </div>
-                  </Link>
+                  {/*  <Link to={"/user/" + profile._id}> */}
+                  <div
+                    className="profile-name"
+                    onClick={() => {
+                      navigate(`/user/${profile._id}`);
+                    }}>
+                    {profile.name} {profile.surname}
+                  </div>
+                  {/*  </Link> */}
 
                   {/* Title */}
                   <div className="profile-title">{profile.title}</div>
