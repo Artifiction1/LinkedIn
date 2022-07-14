@@ -26,16 +26,17 @@ const Experiences = ({ Experience, addToExperience }) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [toggle, setToggle] = useState(false);
-
+  const [changed, setChanged] = useState ('')
   console.log(toggle);
   const [lastToggle, setlastToggle] = useState(true);
   const [NewExperiences, setNewExperiences] = useState([]);
+  
+
 
   const FetchExperiences = async (method) => {
     let bodys = {
       area: Experience.area,
       company: Experience.company,
-      description: Experience.description,
       role: Experience.role,
       startDate: Experience.startDate,
       endDate: Experience.endDate,
@@ -90,9 +91,6 @@ const Experiences = ({ Experience, addToExperience }) => {
       return `Present`;
     }
   };
-  useEffect(() => {
-    FetchExperiences("GET");
-  }, [Experience.description]);
 
   useEffect(() => {
     FetchExperiences("GET");
@@ -201,8 +199,9 @@ const Experiences = ({ Experience, addToExperience }) => {
               marginLeft: "50rem",
               marginTop: "-8rem",
             }}
-            onClick={() => {
-              setToggle(!toggle);
+            onClick={async () => {
+             setToggle(!toggle);
+             FetchExperiences('GET')
             }}
           />
         </div>
