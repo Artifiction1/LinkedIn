@@ -8,6 +8,7 @@ import Profile from "./components/Profile";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import UserProfile from "./components/UserProfile";
+import Post from "./components/Post";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/userprofile" element={<Profile />} />
           <Route path="/" element={<Home />} />
           <Route path="/user/:userId" element={<UserProfile />} />
+          <Route path="/post" element={<Post />} />
         </Routes>
         <Footer />
       </BrowserRouter>

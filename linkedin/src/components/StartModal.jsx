@@ -7,10 +7,42 @@ import { useSelector } from "react-redux";
 const StartModal = () => {
   const [show, setShow] = useState(false);
 
+  const [post, setPost] = useState("");
+
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   const profilesHave = useSelector((state) => state.fetchedProfiles);
+
+  const newPost = async () => {
+    try {
+      const element = { text: post };
+      let response = await fetch(
+        "https://striveschool-api.herokuapp.com/api/posts/",
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json, text/plain, */*",
+            "Content-type": "application/json",
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmNiZWNlY2U2YzAzMDAwMTU5MTgxNDMiLCJpYXQiOjE2NTc1MzE2MjgsImV4cCI6MTY1ODc0MTIyOH0.Ueo_M62QO05ffN1aYIPJjOyI14bH3uldPPo-OlagobM",
+          },
+          body: JSON.stringify(element),
+        }
+      );
+
+      if (response.ok) {
+        let newPost = await response.json();
+
+        setPost(newPost);
+        console.log(post);
+      } else {
+        console.log("Something is wrong !!");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <>
@@ -47,7 +79,9 @@ const StartModal = () => {
               <Form.Control
                 style={{ border: "none" }}
                 as="textarea"
-                /* onChange={} */
+                onChange={(e) => {
+                  setPost(e.target.value);
+                }}
                 rows={3}
                 placeholder="What do you want to talk about?"
               />
@@ -113,10 +147,11 @@ const StartModal = () => {
           <Button
             id="postButton"
             /* disabled={} */
-            /*  onClick={} */
-          >
-            {" "}
-            Post{" "}
+            onClick={() => {
+              newPost();
+              handleClose();
+            }}>
+            Post
           </Button>
         </Modal.Footer>
       </Modal>

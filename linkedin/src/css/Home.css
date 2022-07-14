@@ -18,7 +18,7 @@
 }
 .img-body {
   min-width: inherit;
-  height: 300px;
+  height: 400px;
   margin-top: 12px;
 }
 .main-section {
@@ -34,10 +34,14 @@
   height: 44px;
   border-radius: 50%;
   margin-left: 8px;
-  margin-top: 8px;
+  margin-top: 2px;
 }
 .blue-follow {
   color: blue;
   margin-right: 12px;
   font-size: 1.2rem;
+}
+
+.user-details {
+  margin-left: -150px;
 }
