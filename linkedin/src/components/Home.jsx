@@ -226,11 +226,18 @@ const Home = () => {
                   onClick={() => {
                     editCurrentPost();
                     handleClose();
+                    fetchPosts();
                   }}
                   variant="primary">
                   Edit
                 </Button>
-                <Button onClick={deletePost} variant="primary">
+                <Button
+                  onClick={() => {
+                    deletePost();
+                    handleClose();
+                    fetchPosts();
+                  }}
+                  variant="primary">
                   Delete
                 </Button>
               </Modal.Footer>

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Modal, Button, Image, Form } from "react-bootstrap";
 import { useSelector } from "react-redux";
-import "./StartModal.css";
+import "../css/StartModal.css";
 
 const StartModal = () => {
   const [show, setShow] = useState(false);
