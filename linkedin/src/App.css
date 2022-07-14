@@ -2,7 +2,7 @@
 
 .App {
   text-align: center;
-  background-color: #f3f2ef; 
+  background-color: #f3f2ef;
 }
 
 .App-logo {
@@ -63,6 +63,7 @@
   background-color: white !important;
   border: none !important;
   color: black !important;
+  padding-top: 4px;
   margin-right: 20px;
 }
 

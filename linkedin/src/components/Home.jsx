@@ -19,6 +19,7 @@ import HeaderLeft from "./HeaderLeft";
 import FooterRight from "./FooterRight";
 import RecentBar from "./RecentBar";
 import HomeFeed from "./HomeFeed";
+import { format, parseISO } from "date-fns";
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
@@ -133,9 +134,40 @@ const Home = () => {
                     <div className="single-post" key="nokey">
                       {/*This is the main container*/}
                       <div className="d-flex justify-content-between">
-                        {/*This is post header*/}
-                        <div className="d-flex">
-                          {/*This is Profile Image*/}
+                        <Container>
+                          <Row>
+                            <Col xs={2} className="pr-0 pl-0">
+                              <img
+                                className="img-fluid image-small"
+                                style={{
+                                  borderRadius: "50%",
+                                  width: "48px",
+                                  height: "48px",
+                                }}
+                                src={current.user.image}
+                                alt="profile"
+                              />
+                            </Col>
+                            <Col
+                              xs={9}
+                              className="text-left pl-0 mt-1"
+                              style={{ lineHeight: "2px", textAlign: "left" }}>
+                              <h6>
+                                {current.user.name} {current.user.surname}
+                              </h6>
+
+                              <p style={{ fontSize: "12px" }}>
+                                {current.user.title}
+                              </p>
+                              <p style={{ fontSize: "10px" }}>
+                                {format(parseISO(current.updatedAt), "MMMM dd")}
+                              </p>
+                            </Col>
+                          </Row>
+                        </Container>
+
+                        {/* <div className="d-flex">
+                         
                           <img
                             className="small-img"
                             src={current.user.image}
@@ -156,7 +188,7 @@ const Home = () => {
                                 style={{ fontSize: "12px" }}></i>
                             </span>
                           </div>
-                        </div>
+                        </div> */}
                         <div>
                           {current.user._id === "62cbecece6c0300015918143" && (
                             <Button
@@ -165,7 +197,7 @@ const Home = () => {
                                 setCurrentPostId(current._id);
                               }}
                               className="more-button d-flex align-items-center justify-content-center">
-                              <i className="bi bi-three-dots"></i>
+                              <i className="bi bi-pencil-square"></i>
                             </Button>
                           )}
                         </div>
@@ -202,45 +234,48 @@ const Home = () => {
                   );
                 }
               })}
-            <Modal show={show} onHide={handleClose} animation={false}>
-              <Modal.Header>
-                <Modal.Title>Edit Profile</Modal.Title>
-              </Modal.Header>
-              <Modal.Body>
-                <Form>
-                  <label>Edit Post:</label>
-                  <input
-                    type="text"
-                    required
-                    value={editPost}
-                    onChange={(e) => setEditPost(e.target.value)}
-                  />
-                </Form>
-              </Modal.Body>
 
-              <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
-                  Close
-                </Button>
-                <Button
-                  onClick={() => {
-                    editCurrentPost();
-                    handleClose();
-                    fetchPosts();
-                  }}
-                  variant="primary">
-                  Edit
-                </Button>
-                <Button
-                  onClick={() => {
-                    deletePost();
-                    handleClose();
-                    fetchPosts();
-                  }}
-                  variant="primary">
-                  Delete
-                </Button>
-              </Modal.Footer>
+            <Modal show={show} onHide={handleClose} animation={false}>
+              <div id="modal-whole">
+                <Modal.Header>
+                  <Modal.Title>Edit Post</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  <Form>
+                    <input
+                      className="edit-input"
+                      type="text"
+                      required
+                      value={editPost}
+                      onChange={(e) => setEditPost(e.target.value)}
+                    />
+                  </Form>
+                </Modal.Body>
+
+                <Modal.Footer>
+                  <Button className="modal-btns" onClick={handleClose}>
+                    Close
+                  </Button>
+                  <Button
+                    className="modal-btns gap-0"
+                    onClick={() => {
+                      editCurrentPost();
+                      handleClose();
+                      fetchPosts();
+                    }}>
+                    Edit
+                  </Button>
+                  <Button
+                    className="modal-btns"
+                    onClick={() => {
+                      deletePost();
+                      handleClose();
+                      fetchPosts();
+                    }}>
+                    Delete
+                  </Button>
+                </Modal.Footer>
+              </div>
             </Modal>
           </Col>
           <Col md={3}>

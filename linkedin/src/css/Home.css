@@ -48,3 +48,18 @@
 .user-details {
   margin-left: -150px;
 }
+
+.edit-input {
+  border-radius: 20px;
+}
+.more-button {
+  font-size: 20px;
+}
+.modal-btns {
+  border-radius: 20px;
+  background-color: #0a66c2;
+}
+.image-small {
+  padding: 0px !important;
+  margin-top: 2px !important;
+}

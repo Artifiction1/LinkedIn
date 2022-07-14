@@ -46,7 +46,6 @@ const HomeFeed = () => {
         {profiles.slice(0, 4).map((profile) => (
           <div key={profile._id}>
             <div className="d-flex side-bar">
-              {/* Images */}
               <Image
                 className="img-circle mt-1"
                 style={{ width: "60px", height: "60px" }}
@@ -55,16 +54,17 @@ const HomeFeed = () => {
                 fluid
                 roundedCircle></Image>
 
-              {/* Name & Surname */}
               <div className="profile-details ml-4 mb-2">
-                <div className="profile-name">
+                <div
+                  className="profile-name"
+                  onClick={() => {
+                    navigate(`/user/${profile._id}`);
+                  }}>
                   {profile.name} {profile.surname}
                 </div>
 
-                {/* Title */}
                 <div className="profile-title">{profile.title}</div>
 
-                {/* Connect */}
                 <div className="profile-message">
                   <Button
                     className="rounded-pill btn-sm"
