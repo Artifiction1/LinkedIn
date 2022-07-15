@@ -47,25 +47,6 @@ const StartModal = () => {
     }
   };
 
-  const postImage = async () => {
-    try {
-      let response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/posts/" + currentPostId,
-
-        {
-          method: "POST",
-          headers: {
-            "Content-type": "application/json",
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmNiZWNlY2U2YzAzMDAwMTU5MTgxNDMiLCJpYXQiOjE2NTc1MzE2MjgsImV4cCI6MTY1ODc0MTIyOH0.Ueo_M62QO05ffN1aYIPJjOyI14bH3uldPPo-OlagobM",
-          },
-        }
-      );
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   return (
     <>
       <Button id="startPostButton" onClick={handleShow}>

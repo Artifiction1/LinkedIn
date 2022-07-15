@@ -31,6 +31,8 @@ const Home = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const [showImage, setShowImage] = useState(null);
+
   const [editPost, setEditPost] = useState("");
 
   useEffect(() => {
@@ -114,6 +116,34 @@ const Home = () => {
     }
   };
 
+  const postImage = async () => {
+    const data = new FormData();
+
+    data.append("post", showImage);
+    try {
+      let response = await fetch(
+        "https://striveschool-api.herokuapp.com/api/posts/" + currentPostId,
+
+        {
+          method: "POST",
+          body: data,
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmNiZWNlY2U2YzAzMDAwMTU5MTgxNDMiLCJpYXQiOjE2NTc1MzE2MjgsImV4cCI6MTY1ODc0MTIyOH0.Ueo_M62QO05ffN1aYIPJjOyI14bH3uldPPo-OlagobM",
+          },
+        }
+      );
+
+      if (response.ok) {
+        console.log("Image uploaded");
+      } else {
+        console.log("Error !!!!");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div>
       <Container style={{ marginTop: "30px" }}>
@@ -127,7 +157,7 @@ const Home = () => {
             <PostAddSection />
             {posts
               .reverse()
-              .slice(0, 50)
+              .slice(0, 20)
               .map((current, index) => {
                 if (current.user) {
                   return (
@@ -203,11 +233,13 @@ const Home = () => {
                         </div>
                       </div>
                       <div>{current.text}</div> {/* This is post body*/}
-                      <img
-                        className="img-body"
-                        alt="post-img"
-                        src={current.image}
-                      />
+                      {current.image && (
+                        <img
+                          className="img-body"
+                          alt="post-img"
+                          src={current.image}
+                        />
+                      )}
                       <hr />
                       <div className="d-flex justify-content-around mt-n2 mb-n3">
                         {/* This is post footer */}
@@ -250,15 +282,24 @@ const Home = () => {
                       onChange={(e) => setEditPost(e.target.value)}
                     />
                   </Form>
+                  <form className="mt-3">
+                    <input
+                      type="file"
+                      onChange={(e) => setShowImage(e.target.files[0])}
+                    />
+                  </form>
                 </Modal.Body>
 
                 <Modal.Footer>
+                  <Button className="modal-btns gap-0">Post Image</Button>
                   <Button
                     className="modal-btns gap-0"
+                    type="button"
                     onClick={() => {
                       editCurrentPost();
                       handleClose();
                       fetchPosts();
+                      postImage();
                     }}>
                     Edit
                   </Button>
