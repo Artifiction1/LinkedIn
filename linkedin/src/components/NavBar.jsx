@@ -16,6 +16,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 const MyNavbar = () => {
   const [profile, setProfile] = useState([]);
@@ -23,6 +24,8 @@ const MyNavbar = () => {
   const [filteredData, setfilteredData] = useState([]);
 
   const [hasBeenClicked, setHasBeenClicked] = useState(false);
+
+  const profilesHave = useSelector((state) => state.fetchedProfiles);
 
   useEffect(() => {
     fetchData();
@@ -112,11 +115,14 @@ const MyNavbar = () => {
                 }}>
                 {filteredData.slice(0, 10).map((profile) => {
                   return (
-                    <ListGroupItem>
+                    <ListGroupItem key={profile._id}>
                       <Link to={`/user/${profile._id}`}>
                         <div
                           className="search-list"
-                        onClick={() => {onInputClick(true);setfilteredData([])}}>
+                          onClick={() => {
+                            onInputClick(true);
+                            setfilteredData([]);
+                          }}>
                           <img
                             style={{
                               width: "25px",
@@ -179,7 +185,7 @@ const MyNavbar = () => {
             id="userImg">
             <Image
               id="UserImageNavbar"
-              src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+              src={profilesHave.image}
               roundedCircle
             />
             <span

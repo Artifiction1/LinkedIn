@@ -53,7 +53,7 @@ const Home = () => {
       );
       if (response.ok) {
         const postList = await response.json();
-        setPosts(postList);
+        setPosts(postList.reverse().slice(0, 20));
         console.log(postList);
       } else {
         console.log("error happened fetching the articles");
@@ -155,48 +155,45 @@ const Home = () => {
 
           <Col xs={12} md={8} lg={5} style={{ height: "100%" }}>
             <PostAddSection />
-            {posts
-              .reverse()
-              .slice(0, 20)
-              .map((current, index) => {
-                if (current.user) {
-                  return (
-                    <div className="single-post" key="nokey">
-                      {/*This is the main container*/}
-                      <div className="d-flex justify-content-between">
-                        <Container>
-                          <Row>
-                            <Col xs={2} className="pr-0 pl-0">
-                              <img
-                                className="img-fluid image-small"
-                                style={{
-                                  borderRadius: "50%",
-                                  width: "48px",
-                                  height: "48px",
-                                }}
-                                src={current.user.image}
-                                alt="profile"
-                              />
-                            </Col>
-                            <Col
-                              xs={9}
-                              className="text-left pl-0 mt-1"
-                              style={{ lineHeight: "2px", textAlign: "left" }}>
-                              <h6>
-                                {current.user.name} {current.user.surname}
-                              </h6>
+            {posts.map((current, index) => {
+              if (current.user) {
+                return (
+                  <div className="single-post" key={current._id}>
+                    {/*This is the main container*/}
+                    <div className="d-flex justify-content-between">
+                      <Container>
+                        <Row>
+                          <Col xs={2} className="pr-0 pl-0">
+                            <img
+                              className="img-fluid image-small"
+                              style={{
+                                borderRadius: "50%",
+                                width: "48px",
+                                height: "48px",
+                              }}
+                              src={current.user.image}
+                              alt="profile"
+                            />
+                          </Col>
+                          <Col
+                            xs={9}
+                            className="text-left pl-0 mt-1"
+                            style={{ lineHeight: "2px", textAlign: "left" }}>
+                            <h6>
+                              {current.user.name} {current.user.surname}
+                            </h6>
 
-                              <p style={{ fontSize: "12px" }}>
-                                {current.user.title}
-                              </p>
-                              <p style={{ fontSize: "10px" }}>
-                                {format(parseISO(current.updatedAt), "MMMM dd")}
-                              </p>
-                            </Col>
-                          </Row>
-                        </Container>
+                            <p style={{ fontSize: "12px" }}>
+                              {current.user.title}
+                            </p>
+                            <p style={{ fontSize: "10px" }}>
+                              {format(parseISO(current.updatedAt), "MMMM dd")}
+                            </p>
+                          </Col>
+                        </Row>
+                      </Container>
 
-                        {/* <div className="d-flex">
+                      {/* <div className="d-flex">
                          
                           <img
                             className="small-img"
@@ -219,53 +216,53 @@ const Home = () => {
                             </span>
                           </div>
                         </div> */}
-                        <div>
-                          {current.user._id === "62cbecece6c0300015918143" && (
-                            <Button
-                              onClick={() => {
-                                handleShow();
-                                setCurrentPostId(current._id);
-                              }}
-                              className="more-button d-flex align-items-center justify-content-center">
-                              <i className="bi bi-pencil-square"></i>
-                            </Button>
-                          )}
-                        </div>
-                      </div>
-                      <div>{current.text}</div> {/* This is post body*/}
-                      {current.image && (
-                        <img
-                          className="img-body"
-                          alt="post-img"
-                          src={current.image}
-                        />
-                      )}
-                      <hr />
-                      <div className="d-flex justify-content-around mt-n2 mb-n3">
-                        {/* This is post footer */}
-                        <Button className="post-buttons d-flex justify-content-center align-items-center">
-                          <i
-                            className="bi bi-hand-thumbs-up"
-                            onClick={(e) => {
-                              likePost(e);
-                            }}>
-                            <span>Like</span>
-                          </i>
-                        </Button>
-                        <Button className="post-buttons d-flex justify-content-center align-items-center">
-                          <i className="bi bi-chat-text"></i>Comment
-                        </Button>
-                        <Button className="post-buttons d-flex justify-content-center align-items-center">
-                          <i className="bi bi-arrow-right"></i>Share
-                        </Button>
-                        <Button className="post-buttons d-flex justify-content-center align-items-center">
-                          <i className="bi bi-send-fill"></i>Send
-                        </Button>
+                      <div>
+                        {current.user._id === "62cbecece6c0300015918143" && (
+                          <Button
+                            onClick={() => {
+                              handleShow();
+                              setCurrentPostId(current._id);
+                            }}
+                            className="more-button d-flex align-items-center justify-content-center">
+                            <i className="bi bi-pencil-square"></i>
+                          </Button>
+                        )}
                       </div>
                     </div>
-                  );
-                }
-              })}
+                    <div>{current.text}</div> {/* This is post body*/}
+                    {current.image && (
+                      <img
+                        className="img-body"
+                        alt="post-img"
+                        src={current.image}
+                      />
+                    )}
+                    <hr />
+                    <div className="d-flex justify-content-around mt-n2 mb-n3">
+                      {/* This is post footer */}
+                      <Button className="post-buttons d-flex justify-content-center align-items-center">
+                        <i
+                          className="bi bi-hand-thumbs-up"
+                          onClick={(e) => {
+                            likePost(e);
+                          }}>
+                          <span>Like</span>
+                        </i>
+                      </Button>
+                      <Button className="post-buttons d-flex justify-content-center align-items-center">
+                        <i className="bi bi-chat-text"></i>Comment
+                      </Button>
+                      <Button className="post-buttons d-flex justify-content-center align-items-center">
+                        <i className="bi bi-arrow-right"></i>Share
+                      </Button>
+                      <Button className="post-buttons d-flex justify-content-center align-items-center">
+                        <i className="bi bi-send-fill"></i>Send
+                      </Button>
+                    </div>
+                  </div>
+                );
+              }
+            })}
 
             <Modal show={show} onHide={handleClose} animation={false}>
               <div id="modal-whole">

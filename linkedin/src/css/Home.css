@@ -19,11 +19,11 @@
 .news-feed span {
   margin-left: 5px;
 }
-.img-body {
+/* .img-body {
   min-width: inherit;
   height: 400px;
   margin-top: 12px;
-}
+} */
 .main-section {
   display: flex;
   flex-direction: column;

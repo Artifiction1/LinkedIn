@@ -13,6 +13,36 @@ const ModalImage = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const [showImage, setShowImage] = useState(null);
+
+  const uploadImage = async () => {
+    const data = new FormData();
+
+    data.append("profile", showImage);
+    try {
+      let response = await fetch(
+        "https://striveschool-api.herokuapp.com/api/profile/me/picture",
+
+        {
+          method: "POST",
+          body: data,
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmNiZWNlY2U2YzAzMDAwMTU5MTgxNDMiLCJpYXQiOjE2NTc1MzE2MjgsImV4cCI6MTY1ODc0MTIyOH0.Ueo_M62QO05ffN1aYIPJjOyI14bH3uldPPo-OlagobM",
+          },
+        }
+      );
+
+      if (response.ok) {
+        console.log("Image uploaded");
+      } else {
+        console.log("Error !!!!");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
       <img
@@ -55,7 +85,10 @@ const ModalImage = () => {
               <span>Edit</span>
             </div>
             <div className="add-section">
-              <Button className="photo-icons">
+              <Button
+                className="photo-icons"
+                type="button"
+                onClick={uploadImage}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -68,7 +101,10 @@ const ModalImage = () => {
                   <path d="M16 13a4 4 0 11-4-4 4 4 0 014 4zm6-4v11H2V9a3 3 0 013-3h1.3l1.2-3h9l1.2 3H19a3 3 0 013 3zm-5 4a5 5 0 10-5 5 5 5 0 005-5z"></path>
                 </svg>
               </Button>
-              <input type="file" />
+              <input
+                type="file"
+                onChange={(e) => setShowImage(e.target.files[0])}
+              />
             </div>
           </Modal.Footer>
         </div>

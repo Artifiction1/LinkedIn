@@ -1,4 +1,4 @@
-/** @format */
+
 
 import { Container, Row, Col, Image, Button } from "react-bootstrap";
 import Adv from "../assets/advertisement.jpg";
