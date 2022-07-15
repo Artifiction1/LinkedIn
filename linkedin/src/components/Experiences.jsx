@@ -9,6 +9,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addToExp } from "../redux/actions/actions";
 import { connect } from "react-redux";
+import { useParams } from "react-router-dom";
 import ExpComponent from "./ExpComponent";
 
 const mapStateToProps = (state) => {
@@ -19,11 +20,16 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => ({
   addToExperience: (Exp, target) => dispatch(addToExp(Exp, target)),
 });
-const Experiences = ({ Experience, addToExperience }) => {
+const Experiences = ({ Experience, addToExperience, id }) => {
+  const params = useParams();
+  let userId = params.userId;
+  if(userId === undefined){
+    userId = "62cbecece6c0300015918143"
+  }
   const [show, setShow] = useState(false);
   let expMe =
     "https://striveschool-api.herokuapp.com/api/profile/62cbecece6c0300015918143/experiences";
-  const handleClose = () => setShow(false);
+  const handleClose = () => setShow(false);//62cbecece6c0300015918143
   const handleShow = () => setShow(true);
   const [toggle, setToggle] = useState(false);
   const [changed, setChanged] = useState ('')
@@ -63,7 +69,7 @@ const Experiences = ({ Experience, addToExperience }) => {
     } else {
       try {
         const response = await fetch(
-          "https://striveschool-api.herokuapp.com/api/profile/62cbecece6c0300015918143/experiences",
+          "https://striveschool-api.herokuapp.com/api/profile/"+userId+"/experiences",
           {
             method: method,
             headers: {
@@ -91,17 +97,16 @@ const Experiences = ({ Experience, addToExperience }) => {
       return `Present`;
     }
   };
-
   useEffect(() => {
     FetchExperiences("GET");
-  }, []);
+  }, [userId]);
 
   if (NewExperiences.length > 0) {
     return (
       <div className="experiences">
         <div className="div-edu">
           <h3>Experience</h3>
-          <Plus
+          {userId === '62cbecece6c0300015918143' && (<Plus
             onClick={handleShow}
             size="2.5rem"
             style={{
@@ -109,7 +114,7 @@ const Experiences = ({ Experience, addToExperience }) => {
               marginLeft: "46rem",
               marginTop: "-5rem",
             }}
-          />
+          />)}
           <Modal show={show} onHide={handleClose} animation={false}>
             <Modal.Header>
               <Modal.Title>Add Experience</Modal.Title>
@@ -192,7 +197,7 @@ const Experiences = ({ Experience, addToExperience }) => {
             </Modal.Footer>
           </Modal>
 
-          <Pencil
+          {userId === '62cbecece6c0300015918143' &&(<Pencil
             size="1.2rem"
             style={{
               cursor: "pointer",
@@ -203,7 +208,7 @@ const Experiences = ({ Experience, addToExperience }) => {
              setToggle(!toggle);
              FetchExperiences('GET')
             }}
-          />
+          />)}
         </div>
         {NewExperiences.map((exp) => (
           <div className="d-flex justify-content-between" key={exp._id}>
@@ -211,13 +216,23 @@ const Experiences = ({ Experience, addToExperience }) => {
               <div className="d-flex">
                 {toggle === false && (
                   <>
+                  {exp.image === undefined &&(
                 <img
                   src="https://media-exp2.licdn.com/dms/image/C4D0BAQEFWO_s8a0FHQ/company-logo_200_200/0/1647618816994?e=1665619200&amp;v=beta&amp;t=hzqVGRvol3rh_0b7B5xMv2kmIgcVfGUICHu6g2OYAus"
                   loading="lazy"
                   width="68px"
                   height="68px"
                   alt="EPICODE logo"
+                />)}
+                {exp.image !== undefined && (
+                  <img
+                  src={exp.image}
+                  loading="lazy"
+                  width="68px"
+                  height="68px"
+                  alt="EPICODE logo"
                 />
+                )}
                 
                   <div className="m-1 ml-4 d-flex flex-column text-left">
                     <h6>{exp.role}</h6>

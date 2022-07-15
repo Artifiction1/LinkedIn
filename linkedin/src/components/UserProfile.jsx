@@ -108,30 +108,8 @@ const UserProfile = () => {
             <h3>About me</h3>
             <p>{userProfileData.bio}</p>
           </div>
-          <div className="experiences">
-            <div className="div-edu">
-              <h3>Experience</h3>
-              <Plus
-                size="2.5rem"
-                style={{
-                  cursor: "pointer",
-                  marginLeft: "46rem",
-                  marginTop: "-5rem",
-                }}
-              />
-              <Pencil
-                size="1.2rem"
-                style={{
-                  cursor: "pointer",
-                  marginLeft: "50rem",
-                  marginTop: "-8rem",
-                }}
-              />
-            </div>
-            <Experiences />
-            <hr></hr>
-            <Experiences />
-          </div>
+          
+            <Experiences id = {userProfileData._id}/>
           <div className="education">
             <div className="div-edu">
               <h3>Education</h3>
