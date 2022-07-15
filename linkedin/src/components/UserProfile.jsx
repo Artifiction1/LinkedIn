@@ -16,12 +16,18 @@ const UserProfile = () => {
   const params = useParams();
   const userId = params.userId;
 
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   useEffect(() => {
-    fetchUserData();
+    fetchUserData(userId);
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userId]);
 
-  const fetchUserData = async () => {
+  const fetchUserData = async (userId) => {
     try {
       const url =
         "https://striveschool-api.herokuapp.com/api/profile/" + userId;
@@ -45,7 +51,7 @@ const UserProfile = () => {
   };
 
   return (
-    <Container>
+    <Container style={{ marginTop: "40px" }}>
       <Row>
         <Col md={9}>
           <div id="mainSection">
@@ -58,7 +64,12 @@ const UserProfile = () => {
                 />
               </div>
 
-              <ModalImage />
+              <img
+                src={userProfileData.image}
+                alt="user profile"
+                className="userImgUpdated"
+                onClick={handleShow}
+              />
             </div>
             <div className="all-details">
               <div className="d-flex justify-content-between mt-5">
@@ -66,15 +77,28 @@ const UserProfile = () => {
                 {/* <Button className="editButton">
                             <i className="bi bi-pencil"></i>
                           </Button> */}
-                <ModalProfile />
               </div>
               <h4>{userProfileData.surname}</h4>
               <div className="mt-n1">{userProfileData.title}</div>
               <div style={{ fontSize: "14px" }} className="text-muted">
                 {userProfileData.area}
-                <button className="contact-btn">
+                <button className="contact-btn" onClick={handleShow}>
                   <span className="contact-info">Contact info</span>
                 </button>
+                <Modal show={show} onHide={handleClose} className="modal-image">
+                  <Modal.Header closeButton>
+                    <Modal.Title>Contact Info</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>
+                    <i className="bi bi-envelope mail-icon"> Email</i>
+                    <div className="mail">{userProfileData.email}</div>
+                  </Modal.Body>
+                  <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                      Close
+                    </Button>
+                  </Modal.Footer>
+                </Modal>
               </div>
               <div style={{ fontSize: "14px" }} className="mt-2">
                 <span>500+ connections</span>
@@ -108,8 +132,8 @@ const UserProfile = () => {
             <h3>About me</h3>
             <p>{userProfileData.bio}</p>
           </div>
-          
-            <Experiences id = {userProfileData._id}/>
+
+          <Experiences id = {userProfileData._id}/>
           <div className="education">
             <div className="div-edu">
               <h3>Education</h3>

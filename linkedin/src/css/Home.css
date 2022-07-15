@@ -9,6 +9,9 @@
   margin-bottom: 12px;
   background-color: white;
 }
+.person-name {
+  justify-content: left;
+}
 .d-flex.bottom-icons {
   justify-content: space-around;
   margin-bottom: 15px;
@@ -44,4 +47,21 @@
 
 .user-details {
   margin-left: -150px;
+}
+
+.edit-input {
+  border-radius: 10px;
+  width: 450px;
+}
+.more-button {
+  font-size: 20px;
+}
+.modal-btns {
+  border-radius: 20px;
+  row-gap: 2 !important;
+  background-color: #0a66c2;
+}
+.image-small {
+  padding: 0px !important;
+  margin-top: 2px !important;
 }

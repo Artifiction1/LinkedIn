@@ -12,14 +12,14 @@ import ModalProfile from "./ModalProfile";
 
 export default function Header() {
   const profilesHave = useSelector((state) => state.fetchedProfiles);
- 
+
   const dispatch = useDispatch();
 
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  
+
   useEffect(() => {
     dispatch(fetchProfilesAction());
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -32,7 +32,7 @@ export default function Header() {
           <div className="bg-image">
             <img
               id="bg-img"
-              src="https://i.pinimg.com/originals/2d/e8/82/2de882cd4f3992ada3d609e3a183f7a4.jpg"
+              src="https://media-exp2.licdn.com/dms/image/C4D16AQHmxrz58chkGQ/profile-displaybackgroundimage-shrink_350_1400/0/1655924719323?e=1663200000&v=beta&t=hOQhQn96QRuSe7iEO-JnOOt9d_z5nzRwuWUN-yMyx7M"
               alt="bgimage"
             />
           </div>
@@ -47,13 +47,21 @@ export default function Header() {
           {profilesHave && (
             <>
               <div className="d-flex justify-content-between mt-5">
-                <h3>{profilesHave.name}</h3>
+                <h3>
+                  {profilesHave.name} {profilesHave.surname}
+                </h3>
                 {/* <Button className="editButton">
                     <i className="bi bi-pencil"></i>
                   </Button> */}
+                <img
+                  style={{ width: "32px", height: "32px" }}
+                  src="https://media-exp2.licdn.com/dms/image/C4D0BAQEFWO_s8a0FHQ/company-logo_100_100/0/1647618816994?e=1665619200&v=beta&t=DjYM-HwAlPdejyqSLlj26YmaPXtm_P5jgdQbvjbPkDI"
+                  alt=""
+                />
+                <h5 className="epicode">EPICODE</h5>
                 <ModalProfile />
               </div>
-              <h4>{profilesHave.surname}</h4>
+              <h4></h4>
               <div className="mt-n1">{profilesHave.title}</div>
               <div style={{ fontSize: "14px" }} className="text-muted">
                 {profilesHave.area}
@@ -103,15 +111,26 @@ export default function Header() {
                 </b>
               </div>
             </Col>
+            <Col md={6}>
+              <div className="potential-clients ">
+                <b>
+                  <span className="d-block">Find potential clients</span>
+                </b>
+                <span className="d-block">Tell us about your services</span>
+                <b>
+                  <span className="text-primary">Get Started</span>
+                </b>
+              </div>
+            </Col>
           </Row>
         </div>
       </div>
       <div className="about-me">
         <h3>About me</h3>
         <p>{profilesHave.bio}</p>
-      </div>        
-        <Experiences />
-        <div className="education">
+      </div>
+      <Experiences />
+      <div className="education">
         <div className="div-edu">
           <h3>Education</h3>
           <Plus

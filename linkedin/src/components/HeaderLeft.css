@@ -2,10 +2,13 @@
 
 #backgroundImage {
   height: 100px;
-  width: 300px !important;
+  width: 300px;
   padding: 0;
   background-size: cover;
   background-position: center;
+  border-radius: 10px 10px 0 0;
+  margin-left: -20px;
+  margin-top: -2px;
 }
 
 #headerMiniContainer {

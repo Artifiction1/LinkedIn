@@ -55,7 +55,15 @@
   border: none;
   border-radius: 10px;
   padding: 10px;
-  background-color: rgb(233, 230, 225);
+  background-color: #e9e5df;
+}
+
+.potential-clients {
+  margin-top: 2rem;
+  margin-right: 20px;
+  border: 0.5px solid rgb(218, 215, 215);
+  border-radius: 10px;
+  padding: 10px;
 }
 .all-details {
   text-align: left;
@@ -128,4 +136,17 @@
 }
 .skills-div {
   height: 60px;
+}
+.modal-body {
+  color: black !important;
+}
+.modal-header {
+  color: black !important;
+}
+.epicode {
+  text-align: start !important;
+  margin-left: -170px;
+  justify-content: baseline;
+  align-items: center;
+  padding-top: 4px;
 }

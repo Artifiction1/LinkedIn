@@ -1,5 +1,9 @@
 /** @format */
 
+.whole-recent {
+  position: sticky !important;
+  top: 60px !important;
+}
 .fontSizeTagSection {
   font-size: 12px;
   color: grey;
@@ -62,4 +66,23 @@
 #plusEventsSign:hover {
   background-color: rgba(228, 227, 227, 0.89);
   border-radius: 50%;
+}
+.people-icon {
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
+.recent-divone {
+  padding: 0;
+  margin-left: 15px;
+}
+.groups-div {
+  padding: 0;
+  margin-left: 15px;
+}
+.fontSizeGroups {
+  margin-right: 10px;
+  font-size: 15px;
+}
+.fontSizeRecent {
+  font-size: 12px;
 }

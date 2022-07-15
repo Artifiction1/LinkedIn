@@ -32,12 +32,10 @@ const Experiences = ({ Experience, addToExperience, id }) => {
   const handleClose = () => setShow(false);//62cbecece6c0300015918143
   const handleShow = () => setShow(true);
   const [toggle, setToggle] = useState(false);
-  const [changed, setChanged] = useState ('')
+  const [changed, setChanged] = useState("");
   console.log(toggle);
   const [lastToggle, setlastToggle] = useState(true);
   const [NewExperiences, setNewExperiences] = useState([]);
-  
-
 
   const FetchExperiences = async (method) => {
     let bodys = {
@@ -205,8 +203,8 @@ const Experiences = ({ Experience, addToExperience, id }) => {
               marginTop: "-8rem",
             }}
             onClick={async () => {
-             setToggle(!toggle);
-             FetchExperiences('GET')
+              setToggle(!toggle);
+              FetchExperiences("GET");
             }}
           />)}
         </div>
@@ -216,6 +214,7 @@ const Experiences = ({ Experience, addToExperience, id }) => {
               <div className="d-flex">
                 {toggle === false && (
                   <>
+
                   {exp.image === undefined &&(
                 <img
                   src="https://media-exp2.licdn.com/dms/image/C4D0BAQEFWO_s8a0FHQ/company-logo_200_200/0/1647618816994?e=1665619200&amp;v=beta&amp;t=hzqVGRvol3rh_0b7B5xMv2kmIgcVfGUICHu6g2OYAus"
@@ -247,12 +246,12 @@ const Experiences = ({ Experience, addToExperience, id }) => {
                     <span id="eduFontSize">{exp.area}</span>
                   </div>
                 </>)}
+
                 {toggle === true && <ExpComponent experience={exp} />}
               </div>
             </div>
           </div>
         ))}
-        <hr></hr>
       </div>
     );
   } else {

@@ -27,8 +27,6 @@
 .text {
   font-size: medium;
   font-weight: bold;
-  text-align: left;
-  padding: 3px 10px 0px;
 }
 
 .rounded-pill {
@@ -37,12 +35,13 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.people {
+.all-people {
   border-radius: 0.8rem !important;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.08) !important;
   background: rgb(255, 255, 255);
-  margin-top: 24px;
-  padding: 24px 16px 12px;
+  margin-top: 0px !important;
+  position: sticky;
+  top: 80px;
 }
 
 .edit-public-language-container {

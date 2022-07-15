@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Modal, Button, Image, Form } from "react-bootstrap";
 import { useSelector } from "react-redux";
+import "../css/StartModal.css";
 
 const StartModal = () => {
   const [show, setShow] = useState(false);
@@ -11,6 +12,8 @@ const StartModal = () => {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const [currentPostId, setCurrentPostId] = useState(null);
 
   const profilesHave = useSelector((state) => state.fetchedProfiles);
 
@@ -44,11 +47,31 @@ const StartModal = () => {
     }
   };
 
+  const postImage = async () => {
+    try {
+      let response = await fetch(
+        "https://striveschool-api.herokuapp.com/api/posts/" + currentPostId,
+
+        {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmNiZWNlY2U2YzAzMDAwMTU5MTgxNDMiLCJpYXQiOjE2NTc1MzE2MjgsImV4cCI6MTY1ODc0MTIyOH0.Ueo_M62QO05ffN1aYIPJjOyI14bH3uldPPo-OlagobM",
+          },
+        }
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
       <Button id="startPostButton" onClick={handleShow}>
         Start a post
       </Button>
+
       <Modal id="postModal" onHide={handleClose} show={show}>
         <Modal.Header closeButton>
           <div style={{ fontSize: "19px" }} className="ml-2">
@@ -56,19 +79,25 @@ const StartModal = () => {
           </div>
         </Modal.Header>
 
-        <div className="d-flex ml-4 mt-3">
+        <div className="d-flex gap-3 mt-3 image-section">
           <Image
             alt="profile-Image"
             style={{ borderRadius: "50%", objectFit: "cover" }}
             height="48px"
             width="48px"
-            src={profilesHave.image}></Image>
-          <div className="ml-2 mt-n1">
-            <div style={{ fontSize: "16px", fontWeight: "600" }}>
+            src={profilesHave.image}
+            className="mt-2 image-icon"></Image>
+          <div className="ml-5 mb-2">
+            <div
+              style={{
+                fontSize: "16px",
+                fontWeight: "600",
+                marginBottom: "5px",
+              }}>
               {profilesHave.name} {profilesHave.surname}
             </div>
             <Button id="sharingSettings">
-              <i className="bi bi-globe" style={{ fontSize: "14px" }}></i>{" "}
+              <i className="bi bi-globe" style={{ fontSize: "14px" }}></i>
               Anyone
             </Button>
           </div>

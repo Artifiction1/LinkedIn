@@ -3,6 +3,8 @@
 .subtitle {
   font-size: 16px;
   font-weight: 400;
+  text-align: start;
+  margin-bottom: 20px;
 }
 
 #img1 {
@@ -100,4 +102,9 @@
 
 #learningButton:hover {
   background-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+.icon-section {
+  text-align: left;
+  padding-top: 20px;
 }

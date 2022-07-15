@@ -1,17 +1,10 @@
 /** @format */
 
-.modal-content {
-  border-radius: 30px;
-}
-.modal-image {
-  border-radius: 20px !important;
-  color: white;
-  overflow: hidden;
-}
 .modal-profile {
   width: 150px;
   height: 150px;
   border-radius: 50%;
+  border: 5px solid rgb(5, 50, 69);
   justify-content: center !important;
   margin-left: 10rem;
 }
@@ -32,9 +25,10 @@
   background-color: inherit;
   border: none;
   border-radius: 25px;
+  color: black;
 }
 .photo-icons:hover {
-  background-color: aqua;
+  background-color: rgb(73, 77, 77);
   border-radius: 25px;
 }
 .modal-header {

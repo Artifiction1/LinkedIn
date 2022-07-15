@@ -22,7 +22,7 @@ const ModalImage = () => {
         onClick={handleShow}
       />
       <Modal show={show} onHide={handleClose}>
-        <div className="modal-image">
+        <div className="modal-all">
           <Modal.Header>
             <Modal.Title>Profile Photo</Modal.Title>
             <button className="close-btn" onClick={handleClose}>
