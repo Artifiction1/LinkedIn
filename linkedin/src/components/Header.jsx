@@ -61,7 +61,7 @@ export default function Header() {
                 <h5 className="epicode">EPICODE</h5>
                 <ModalProfile />
               </div>
-              <h4></h4>
+
               <div className="mt-n1">{profilesHave.title}</div>
               <div style={{ fontSize: "14px" }} className="text-muted">
                 {profilesHave.area}
