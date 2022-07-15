@@ -292,12 +292,12 @@ const Home = () => {
                   <Button
                     className="modal-btns gap-0"
                     type="button"
-                    onClick={() => {
+                    onClick={async () => {
                       editCurrentPost();
                       handleClose();
-                      postImage();
                       fetchPosts();
-                      postImage();
+                      await postImage();
+                      fetchPosts();
                     }}>
                     Edit
                   </Button>
