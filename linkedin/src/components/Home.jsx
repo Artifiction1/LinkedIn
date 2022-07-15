@@ -279,7 +279,7 @@ const Home = () => {
                       onChange={(e) => setEditPost(e.target.value)}
                     />
                   </Form>
-                  <form className="mt-3">
+                  <form className="mt-3 ">
                     <input
                       type="file"
                       onChange={(e) => setShowImage(e.target.files[0])}
@@ -292,11 +292,11 @@ const Home = () => {
                   <Button
                     className="modal-btns gap-0"
                     type="button"
-                    onClick={() => {
+                    onClick={async () => {
                       editCurrentPost();
                       handleClose();
+                      await postImage();
                       fetchPosts();
-                      postImage();
                     }}>
                     Edit
                   </Button>
