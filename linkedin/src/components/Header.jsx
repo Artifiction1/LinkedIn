@@ -48,7 +48,7 @@ export default function Header() {
             <>
               <div className="d-flex justify-content-between mt-5">
                 <h3>
-                  {profilesHave.name} {profilesHave.surname}
+                  {profilesHave.name} {""} {profilesHave.surname}
                 </h3>
                 {/* <Button className="editButton">
                     <i className="bi bi-pencil"></i>
