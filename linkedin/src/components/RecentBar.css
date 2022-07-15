@@ -1,0 +1,88 @@
+/** @format */
+
+.whole-recent {
+  position: sticky !important;
+  top: 60px !important;
+}
+.fontSizeTagSection {
+  font-size: 12px;
+  color: grey;
+}
+
+#tagSectionContainer {
+  background-color: white;
+  margin-top: 20px;
+  border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+  border: 1px solid rgb(226, 225, 225);
+}
+
+.tag-button {
+  margin: 8px 0px;
+  padding: 2px 8px;
+  width: 100%;
+  background: none;
+  color: rgba(0, 0, 0, 0.6);
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.tag-button:hover {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.recentTags:hover {
+  cursor: pointer;
+  background-color: rgba(228, 227, 227, 0.89);
+}
+
+.fontSizeRecent {
+  font-size: 14px;
+}
+
+.fontSizeGroups {
+  color: #0a66c2;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.fontSizeGroups:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#styleDiscoverMore {
+  font-size: 14px;
+  font-weight: 500;
+  color: gray;
+  margin-bottom: 10px;
+}
+
+#styleDiscoverMore:hover {
+  background-color: rgba(228, 227, 227, 0.89);
+}
+
+#plusEventsSign:hover {
+  background-color: rgba(228, 227, 227, 0.89);
+  border-radius: 50%;
+}
+.people-icon {
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
+.recent-divone {
+  padding: 0;
+  margin-left: 15px;
+}
+.groups-div {
+  padding: 0;
+  margin-left: 15px;
+}
+.fontSizeGroups {
+  margin-right: 10px;
+  font-size: 15px;
+}
+.fontSizeRecent {
+  font-size: 12px;
+}

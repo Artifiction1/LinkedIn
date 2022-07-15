@@ -1,0 +1,40 @@
+/** @format */
+
+.modal-profile {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 5px solid rgb(5, 50, 69);
+  justify-content: center !important;
+  margin-left: 10rem;
+}
+.close-btn {
+  font-size: 25px !important;
+  background-color: inherit;
+  border: none;
+  color: white;
+}
+.add-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.photo-icons {
+  margin-bottom: 0.5rem;
+  background-color: inherit;
+  border: none;
+  border-radius: 25px;
+  color: black;
+}
+.photo-icons:hover {
+  background-color: rgb(73, 77, 77);
+  border-radius: 25px;
+}
+.modal-header {
+  border: none !important;
+}
+.modal-footer {
+  border: none !important;
+  justify-content: space-around;
+}

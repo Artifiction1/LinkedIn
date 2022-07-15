@@ -1,0 +1,30 @@
+/** @format */
+
+.postFooterbuttons {
+  background-color: inherit !important;
+  color: black !important;
+  border: none;
+}
+.modal-content {
+  border-radius: 17px !important;
+  padding: 10px !important;
+}
+
+.image-section {
+  margin-left: 20px;
+}
+#sharingSettings {
+  background-color: white;
+  color: black !important;
+  border: 1px solid grey;
+  padding: 3px 10px !important;
+  border-radius: 20px;
+}
+
+#sharingSettings:hover {
+  background-color: rgb(192, 188, 188);
+}
+#postButton {
+  border-radius: 20px;
+  background-color: #0a66c2;
+}

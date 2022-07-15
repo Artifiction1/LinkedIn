@@ -1,0 +1,46 @@
+/** @format */
+
+#Navbar {
+  width: 100%;
+  font-size: 12px;
+  padding-left: 140px;
+  padding-right: 140px;
+  background-color: white;
+  height: 55px;
+  position: sticky;
+  z-index: 4;
+  top: 0;
+}
+
+#linkedinIcon {
+  font-size: 35px;
+  color: #0a66c2;
+  margin-right: 10px;
+  margin-left: 30px;
+}
+
+#userImg {
+  border-right: 1px solid rgb(141, 134, 134);
+}
+
+#UserImageNavbar {
+  width: 28px;
+  margin: 3px;
+}
+
+.iconNavBar {
+  font-size: 23px;
+}
+
+.containerIconAndNameNavBar {
+  width: 90px;
+}
+
+#Navbar a:not(#tryPremium) {
+  color: rgba(0, 0, 0, 0.6) !important;
+}
+
+#tryPremium {
+  width: 150px;
+  color: #915907 !important;
+}

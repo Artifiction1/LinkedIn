@@ -1,0 +1,67 @@
+/** @format */
+
+.news-feed {
+  min-height: 500px;
+  border: 1px solid rgb(199, 195, 195);
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 12px;
+  background-color: white;
+}
+.person-name {
+  justify-content: left;
+}
+.d-flex.bottom-icons {
+  justify-content: space-around;
+  margin-bottom: 15px;
+}
+.news-feed span {
+  margin-left: 5px;
+}
+/* .img-body {
+  min-width: inherit;
+  height: 400px;
+  margin-top: 12px;
+} */
+.main-section {
+  display: flex;
+  flex-direction: column;
+}
+.top-part {
+  display: flex;
+  justify-content: space-between;
+}
+.small-img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  margin-left: 8px;
+  margin-top: 2px;
+}
+.blue-follow {
+  color: blue;
+  margin-right: 12px;
+  font-size: 1.2rem;
+}
+
+.user-details {
+  margin-left: -150px;
+}
+
+.edit-input {
+  border-radius: 10px;
+  width: 450px;
+}
+.more-button {
+  font-size: 20px;
+}
+.modal-btns {
+  border-radius: 20px;
+  row-gap: 2 !important;
+  background-color: #0a66c2;
+}
+.image-small {
+  padding: 0px !important;
+  margin-top: 2px !important;
+}
