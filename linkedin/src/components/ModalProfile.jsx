@@ -4,10 +4,7 @@ import { useState } from "react";
 
 import { Modal, Button, Form } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import {
-  editProfileAction,
-  fetchProfilesAction,
-} from "../redux/actions/actions";
+import { editProfileAction } from "../redux/actions/actions";
 
 const ModalProfile = () => {
   const [show, setShow] = useState(false);
@@ -76,10 +73,7 @@ const ModalProfile = () => {
             </Button>
             <Button
               variant="primary"
-              onClick={() => {
-                dispatch(editProfileAction());
-                handleClose();
-              }}>
+              onClick={() => dispatch(editProfileAction())}>
               Edit
             </Button>
           </Modal.Footer>

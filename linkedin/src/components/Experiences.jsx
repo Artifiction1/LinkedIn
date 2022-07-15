@@ -7,32 +7,33 @@ import { format, parseISO } from "date-fns";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addToExp, Changed } from "../redux/actions/actions";
+import { addToExp, Changed} from "../redux/actions/actions";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
 import ExpComponent from "./ExpComponent";
 import { array, number, object, string } from "prop-types";
 
+
 const mapStateToProps = (state) => {
   return {
     Experience: state.Experience,
-    changer: state.changer,
+    changer: state.changer
   };
 };
 const mapDispatchToProps = (dispatch) => ({
   addToExperience: (Exp, target) => dispatch(addToExp(Exp, target)),
-  Changed: (exp) => dispatch(Changed(exp)),
+  Changed: (exp) => dispatch(Changed(exp))
 });
 const Experiences = ({ Experience, addToExperience, Changed, changer }) => {
   const params = useParams();
   let userId = params.userId;
-  if (userId === undefined) {
-    userId = "62cbecece6c0300015918143";
+  if(userId === undefined){
+    userId = "62cbecece6c0300015918143"
   }
   const [show, setShow] = useState(false);
   let expMe =
     "https://striveschool-api.herokuapp.com/api/profile/62cbecece6c0300015918143/experiences";
-  const handleClose = () => setShow(false); //62cbecece6c0300015918143
+  const handleClose = () => setShow(false);//62cbecece6c0300015918143
   const handleShow = () => setShow(true);
   const [toggle, setToggle] = useState(false);
   const [changers, setChanger] = useState("");
@@ -47,7 +48,6 @@ const Experiences = ({ Experience, addToExperience, Changed, changer }) => {
       description: Experience.description,
       role: Experience.role,
       startDate: Experience.startDate,
-      description: Experience.description,
       endDate: Experience.endDate,
     };
     console.log(bodys);
@@ -72,9 +72,7 @@ const Experiences = ({ Experience, addToExperience, Changed, changer }) => {
     } else {
       try {
         const response = await fetch(
-          "https://striveschool-api.herokuapp.com/api/profile/" +
-            userId +
-            "/experiences",
+          "https://striveschool-api.herokuapp.com/api/profile/"+userId+"/experiences",
           {
             method: method,
             headers: {
@@ -85,18 +83,10 @@ const Experiences = ({ Experience, addToExperience, Changed, changer }) => {
         );
         if (response.ok) {
           const data = await response.json();
-          for (let i = 0; i < data.length; i++) {
-            if (data[i].endDate !== undefined) {
-              if (data[i].endDate === null) {
-                data[i].endDate = "now";
-
-              }
-            }
-          }
           setNewExperiences(data);
           setlastToggle(toggle);
           console.log(data);
-          console.log(NewExperiences[0].endDate);
+          console.log(NewExperiences[0].endDate)
         }
       } catch (error) {
         console.log(error);
@@ -112,15 +102,13 @@ const Experiences = ({ Experience, addToExperience, Changed, changer }) => {
     }
   };
   useEffect(() => {
-
-    if (changers === "changed") {
-      FetchExperiences("GET");
-      Changed("");
-    }
-  }, [{ changers }]);
+    if(changers === "changed"){
+    FetchExperiences("GET");
+  Changed('')}
+  }, [{changers}])
   useEffect(() => {
     FetchExperiences("GET");
-    setChanger(Changed);
+    setChanger(Changed)
   }, [userId]);
 
   if (NewExperiences.length > 0) {
@@ -128,17 +116,15 @@ const Experiences = ({ Experience, addToExperience, Changed, changer }) => {
       <div className="experiences">
         <div className="div-edu">
           <h3>Experience</h3>
-          {userId === "62cbecece6c0300015918143" && (
-            <Plus
-              onClick={handleShow}
-              size="2.5rem"
-              style={{
-                cursor: "pointer",
-                marginLeft: "46rem",
-                marginTop: "-5rem",
-              }}
-            />
-          )}
+          {userId === '62cbecece6c0300015918143' && (<Plus
+            onClick={handleShow}
+            size="2.5rem"
+            style={{
+              cursor: "pointer",
+              marginLeft: "46rem",
+              marginTop: "-5rem",
+            }}
+          />)}
           <Modal show={show} onHide={handleClose} animation={false}>
             <Modal.Header>
               <Modal.Title>Add Experience</Modal.Title>
@@ -221,20 +207,18 @@ const Experiences = ({ Experience, addToExperience, Changed, changer }) => {
             </Modal.Footer>
           </Modal>
 
-          {userId === "62cbecece6c0300015918143" && (
-            <Pencil
-              size="1.2rem"
-              style={{
-                cursor: "pointer",
-                marginLeft: "50rem",
-                marginTop: "-8rem",
-              }}
-              onClick={async () => {
-                setToggle(!toggle);
-                FetchExperiences("GET");
-              }}
-            />
-          )}
+          {userId === '62cbecece6c0300015918143' &&(<Pencil
+            size="1.2rem"
+            style={{
+              cursor: "pointer",
+              marginLeft: "50rem",
+              marginTop: "-8rem",
+            }}
+            onClick={async () => {
+              setToggle(!toggle);
+              FetchExperiences("GET");
+            }}
+          />)}
         </div>
         {NewExperiences.map((exp) => (
           <div className="d-flex justify-content-between" key={exp._id}>
@@ -242,39 +226,39 @@ const Experiences = ({ Experience, addToExperience, Changed, changer }) => {
               <div className="d-flex">
                 {toggle === false && (
                   <>
-                    {exp.image === undefined && (
-                      <img
-                        src="https://media-exp2.licdn.com/dms/image/C4D0BAQEFWO_s8a0FHQ/company-logo_200_200/0/1647618816994?e=1665619200&amp;v=beta&amp;t=hzqVGRvol3rh_0b7B5xMv2kmIgcVfGUICHu6g2OYAus"
-                        loading="lazy"
-                        width="68px"
-                        height="68px"
-                        alt="EPICODE logo"
-                      />
-                    )}
-                    {exp.image !== undefined && (
-                      <img
-                        src={exp.image}
-                        loading="lazy"
-                        width="68px"
-                        height="68px"
-                        alt="EPICODE logo"
-                      />
-                    )}
 
-                    <div className="m-1 ml-4 d-flex flex-column text-left">
-                      <h6>{exp.role}</h6>
-                      <span id="eduFontSize">{exp.company}</span>
-                      <span id="eduFontSize" className="text-muted">
-                        {exp.startDate.substr(0, 10)} -{" "}
-                        {exp.endDate !== undefined && (
-                          <span>{exp.endDate.substr(0, 10)}</span>
-                        )}{" "}
-                        {exp.endDate === undefined && <span>now</span>}
-                      </span>
-                      <span id="eduFontSize">{exp.area}</span>
-                    </div>
-                  </>
+                  {exp.image === undefined &&(
+                <img
+                  src="https://media-exp2.licdn.com/dms/image/C4D0BAQEFWO_s8a0FHQ/company-logo_200_200/0/1647618816994?e=1665619200&amp;v=beta&amp;t=hzqVGRvol3rh_0b7B5xMv2kmIgcVfGUICHu6g2OYAus"
+                  loading="lazy"
+                  width="68px"
+                  height="68px"
+                  alt="EPICODE logo"
+                />)}
+                {exp.image !== undefined && (
+                  <img
+                  src={exp.image}
+                  loading="lazy"
+                  width="68px"
+                  height="68px"
+                  alt="EPICODE logo"
+                />
                 )}
+                
+                  <div className="m-1 ml-4 d-flex flex-column text-left">
+                    <h6>{exp.role}</h6>
+                    <span id="eduFontSize">{exp.company}</span>
+                    <span id="eduFontSize" className="text-muted">
+                      {exp.startDate.substr(0, 10)} -{" "}
+                      {exp.endDate !==  undefined  && (
+                                              
+                        <span>{exp.endDate.substr(0, 10)}</span>
+                      )}{" "}
+                      {exp.endDate === undefined && <span>now</span>}
+                    </span>
+                    <span id="eduFontSize">{exp.area}</span>
+                  </div>
+                </>)}
 
                 {toggle === true && <ExpComponent experience={exp} />}
               </div>
