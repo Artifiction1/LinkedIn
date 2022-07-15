@@ -116,7 +116,7 @@ const MyNavbar = () => {
                       <Link to={`/user/${profile._id}`}>
                         <div
                           className="search-list"
-                          onClick={() => onInputClick(true)}>
+                        onClick={() => {onInputClick(true);setfilteredData([])}}>
                           <img
                             style={{
                               width: "25px",
