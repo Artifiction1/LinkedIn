@@ -17,7 +17,7 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 
-const ExpComponent = ({experience, addToExperience, Experience}) => {
+const ExpComponent = ({experience, addToExperience, Experience, id}) => {
 
     const [Role,setRole]=useState('')
     const [Company,setCompany]=useState('')
@@ -64,7 +64,7 @@ const ExpComponent = ({experience, addToExperience, Experience}) => {
     setArea(experience.area)},[])
     return (
       <>
-      <FileUpload/>
+      <FileUpload id={experience}/>
         <div className="m-1 ml-4 d-flex flex-column text-left">
             <InputGroup size="sm" className="">
         <Form.Control

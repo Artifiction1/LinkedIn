@@ -132,71 +132,8 @@ const UserProfile = () => {
             <h3>About me</h3>
             <p>{userProfileData.bio}</p>
           </div>
-          <div className="experiences">
-            <div className="div-edu">
-              <h3>Experience</h3>
-              <Plus
-                size="2.5rem"
-                style={{
-                  cursor: "pointer",
-                  marginLeft: "46rem",
-                  marginTop: "-5rem",
-                }}
-              />
-              <Pencil
-                size="1.2rem"
-                style={{
-                  cursor: "pointer",
-                  marginLeft: "50rem",
-                  marginTop: "-8rem",
-                }}
-              />
-            </div>
 
-            <div className="d-flex justify-content-between">
-              <div className="mt-3">
-                <div className="d-flex">
-                  <img
-                    src="https://media-exp2.licdn.com/dms/image/C4D0BAQEFWO_s8a0FHQ/company-logo_200_200/0/1647618816994?e=1665619200&amp;v=beta&amp;t=hzqVGRvol3rh_0b7B5xMv2kmIgcVfGUICHu6g2OYAus"
-                    loading="lazy"
-                    width="68px"
-                    height="68px"
-                    alt="EPICODE logo"
-                  />
-                  <div className="m-1 ml-4 d-flex flex-column text-left">
-                    <h6>Front End Developer</h6>
-                    <span id="eduFontSize">Epicode</span>
-                    <span id="eduFontSize" className="text-muted">
-                      04/2022 - 08/2022
-                    </span>
-                    <span id="eduFontSize">HTML, CSS & JavaScript</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="d-flex justify-content-between">
-              <div className="mt-3">
-                <div className="d-flex">
-                  <img
-                    src="https://media-exp2.licdn.com/dms/image/C4D0BAQEFWO_s8a0FHQ/company-logo_200_200/0/1647618816994?e=1665619200&amp;v=beta&amp;t=hzqVGRvol3rh_0b7B5xMv2kmIgcVfGUICHu6g2OYAus"
-                    loading="lazy"
-                    width="68px"
-                    height="68px"
-                    alt="EPICODE logo"
-                  />
-                  <div className="m-1 ml-4 d-flex flex-column text-left">
-                    <h6>Front End Developer</h6>
-                    <span id="eduFontSize">Epicode</span>
-                    <span id="eduFontSize" className="text-muted">
-                      04/2022 - 08/2022
-                    </span>
-                    <span id="eduFontSize">HTML, CSS & JavaScript</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <Experiences id = {userProfileData._id}/>
           <div className="education">
             <div className="div-edu">
               <h3>Education</h3>
