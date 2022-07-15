@@ -29,7 +29,7 @@ const Sidebar = () => {
       );
 
       let data = await response.json();
-      setProfiles(data.slice(0, 5));
+      setProfiles(data);
     } catch (error) {
       console.log(error, "Error");
     }
@@ -95,10 +95,10 @@ const Sidebar = () => {
 
       {/* People you may know */}
       <div className="people pt-3 ">
-        <h4 className="text">People you may know</h4>
+        <h4 className="text">People also viewed you</h4>
         <div className="pl-3 pt-2">
           {/* Loading profiles from fetched data */}
-          {profiles.reverse().map((profile) => (
+          {profiles.slice(0, 5).map((profile) => (
             <div key={profile._id}>
               <Container>
                 <Row>
@@ -153,7 +153,7 @@ const Sidebar = () => {
         <h4 className="text">People you may know</h4>
         <div className="pl-3 pt-2">
           {/* Loading profiles from fetched data */}
-          {profiles.map((profile) => (
+          {profiles.slice(5, 10).map((profile) => (
             <div key={profile._id}>
               <Container>
                 <Row>
