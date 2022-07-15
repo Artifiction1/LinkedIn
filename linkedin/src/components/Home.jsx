@@ -295,6 +295,7 @@ const Home = () => {
                     onClick={() => {
                       editCurrentPost();
                       handleClose();
+                      postImage();
                       fetchPosts();
                       postImage();
                     }}>
