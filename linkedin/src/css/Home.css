@@ -57,6 +57,7 @@
 }
 .modal-btns {
   border-radius: 20px;
+  row-gap: 2 !important;
   background-color: #0a66c2;
 }
 .image-small {
