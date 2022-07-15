@@ -52,9 +52,7 @@ const FileUpload = () => {
           ); 
         } else { 
           return ( 
-            <div> 
-              <br /> 
-              <h4>Choose before Pressing the Upload button</h4> 
+            <div>
             </div> 
           ); 
         } 
@@ -63,15 +61,13 @@ const FileUpload = () => {
       
         return ( 
           <div> 
-              <h1> 
-                GeeksforGeeks 
-              </h1> 
               <h3> 
-                File Upload using React! 
+                experience picture
               </h3> 
               <div> 
-                  <input type="file" onChange={onFileChange} /> 
-                  <button onClick={onFileUpload}> 
+                  <input type="file" style={{backgroundColor: 'white'}} onChange={onFileChange} /> 
+                  </div><div>
+                  <button onClick={onFileUpload} style={{backgroundColor: 'red', color: 'white'}}> 
                     Upload! 
                   </button> 
               </div> 
