@@ -83,6 +83,13 @@ const Experiences = ({ Experience, addToExperience, Changed, changer }) => {
         );
         if (response.ok) {
           const data = await response.json();
+          for( let i = 0; i< data.length; i++){
+            if (data[i].endDate !== undefined){
+              if (data[i].endDate === null){
+                data[i].endDate = "now"
+              }
+            }
+          }
           setNewExperiences(data);
           setlastToggle(toggle);
           console.log(data);
