@@ -1,4 +1,8 @@
-Profiles
+/**
+ * /* Profiles
+ *
+ * @format
+ */
 
 /* - GET https://striveschool-api.herokuapp.com/api/profile/
 Gets a list of user profiles */
@@ -7,7 +11,7 @@ Retrieves my own profile*/
 /*- GET https://striveschool-api.herokuapp.com/api/profile/{userId}
 Retrieves a specific profile*/
 /*- PUT https://striveschool-api.herokuapp.com/api/profile/
-Updates current user's profile*/    
+Updates current user's profile*/
 
 /*
 PROFILE Model:
@@ -27,7 +31,7 @@ PROFILE Model:
 }
 */
 
-Experiences 
+/* Experiences */
 
 /*- GET https://striveschool-api.herokuapp.com/api/profile/:userId/experiences
 Gets a list of user experiences*/
@@ -44,8 +48,7 @@ Edits a specific experience*/
 /*- DELETE https://striveschool-api.herokuapp.com/api/profile/:userId/experiences/:expId
 Deletes a specific experience*/
 
-Posts
-
+/* Posts */
 /*- GET https://striveschool-api.herokuapp.com/api/posts/ 
 Gets a list of existing posts*/
 
@@ -61,19 +64,13 @@ Edits a specific post*/
 /*- DELETE https://striveschool-api.herokuapp.com/api/posts/{postId}
 Deletes a specific post*/
 
-
-
-
-image
+/* image */
 
 /*IMAGE UPLOAD:- POST https://striveschool-api.herokuapp.com/api/profile/{userId}/picture
 
 Replaces user profile's picture.
 
 Name of the picture property in the form-data: profile*/
-
-
-
 
 /*- POST https://striveschool-api.herokuapp.com/api/profile/{userId}/experiences/:expId/picture
 
@@ -82,9 +79,6 @@ Adds an image to the experience.
 NOTE: every user is allowed to mess only with his own experiences
 
 Name of the picture property in the form-data: experience*/
-
-
-
 
 /*- POST https://striveschool-api.herokuapp.com/api/posts/:postId
 

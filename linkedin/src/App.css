@@ -1,5 +1,8 @@
+/** @format */
+
 .App {
   text-align: center;
+  background-color: #f3f2ef; 
 }
 
 .App-logo {
@@ -35,4 +38,43 @@
   to {
     transform: rotate(360deg);
   }
+}
+.back-office {
+  max-width: 700px !important;
+  margin: 0, auto !important;
+}
+
+.inputs-modal {
+  width: 300px !important;
+  margin-left: 20px;
+  border-radius: 20px;
+}
+.nav-icons {
+  color: grey;
+}
+
+.hero-section {
+  margin: 2rem 0 !important;
+}
+
+.edit {
+  cursor: pointer !important;
+  border-radius: 50% !important;
+  background-color: white !important;
+  border: none !important;
+  color: black !important;
+  margin-right: 20px;
+}
+
+.input-groups {
+  margin-left: 20px;
+}
+
+.input-fields {
+  margin-bottom: 10px;
+  width: 350px !important;
+  border-radius: 10px !important;
+}
+.container {
+  padding: 0 20px !important;
 }

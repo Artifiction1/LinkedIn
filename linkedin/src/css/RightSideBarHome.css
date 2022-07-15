@@ -1,0 +1,12 @@
+.reccomentations {
+    padding: 2px 8px;
+    font-size: 14px;
+    width: 204px;
+    height: 24px;
+    background: transparent;
+    color: gray;
+}
+
+.reccomentations:hover {
+    background: lightgray;
+}

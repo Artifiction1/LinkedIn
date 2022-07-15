@@ -1,0 +1,77 @@
+.home-my-profile-card p,
+.home-my-profile-card span {
+  font-size: 9px;
+  margin: 0;
+}
+
+
+.home-my-profile-card {
+  background: white;
+  border-radius: 0.8rem !important;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.08)!important;
+  background: rgb(255, 255, 255);
+  margin-top: 24px;
+}
+
+.my-name:hover {
+  text-decoration: underline;
+}
+
+
+
+.home-my-profile-card .hero {
+  background-image: url("https://images.ctfassets.net/7thvzrs93dvf/wpImage18643/2f45c72db7876d2f40623a8b09a88b17/linkedin-default-background-cover-photo-1.png?w=790&h=196&q=90&fm=png");
+  background-size: cover;
+  height: 60px;
+  border-top-left-radius: 0.8rem !important;
+  border-top-right-radius: 0.8rem !important;
+}
+
+.img-holder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -36px;
+}
+
+
+.home-my-profile-card .avatar {
+  height: 72px;
+  width: 72px;
+  object-fit: cover;
+}
+
+.home-my-profile-card .my-title,
+.home-my-profile-card .views p,
+.home-my-profile-card .my-items {
+  color:  rgba(58, 56, 56, 0.6);
+}
+
+.home-my-profile-card .views p {
+  color: rgba(58, 56, 56, 0.6);
+  font-weight: bold;
+  font-size: 9px;
+}
+.home-my-profile-card .views span {
+  color: rgb(91, 164, 237)
+}
+
+.home-my-profile-card .my-items {
+  font-weight: bold;
+  font-size: 11px;
+}
+
+.my-items:hover {
+  background: rgb(218, 218, 218);
+  border-bottom-left-radius: 0.8rem !important;
+  border-bottom-right-radius: 0.8rem !important;
+}
+
+.views-two {
+  padding: 0!important;
+}
+
+
+.views-one:hover, .views-two:hover {
+  background-color: rgb(218, 218, 218);
+}
