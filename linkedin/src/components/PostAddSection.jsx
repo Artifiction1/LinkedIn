@@ -1,18 +1,19 @@
 /** @format */
 
 import { Image, Button, Container } from "react-bootstrap";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "./PostAddSection.css";
 import StartModal from "./StartModal";
 
 const PostAddSection = (props) => {
+  const profilesHave = useSelector((state) => state.fetchedProfiles);
+
   return (
     <Container id="postAddSection">
       <div className="d-flex mt-4">
         <Link to=" ">
-          <Image
-            alt="profile-image"
-            src="https://wallpaperaccess.com/full/2213426.jpg"></Image>
+          <Image alt="profile-image" src={profilesHave.image}></Image>
         </Link>
         <StartModal />
       </div>
