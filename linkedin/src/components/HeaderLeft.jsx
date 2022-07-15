@@ -5,12 +5,15 @@
 import { Container, Row, Col, Image } from "react-bootstrap";
 import "./HeaderLeft.css";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const HeaderLeft = (props) => {
   const [profile, setProfile] = useState([]);
   useEffect(() => {
     fetchData();
   }, []);
+
+  const navigate = useNavigate();
 
   const fetchData = async () => {
     try {
@@ -41,7 +44,12 @@ const HeaderLeft = (props) => {
         <Row className="d-flex flex-column align-items-center borderBottom ">
           <Image src={profile.image} id="userImage" className="mx-auto" />
           <div className="mb-3 mt-n3 text-center">
-            <div className="font-weight-bold " id="userName">
+            <div
+              className="font-weight-bold "
+              id="userName"
+              onClick={() => {
+                navigate("/userprofile");
+              }}>
               {profile.name} {profile.surname}
             </div>
             <div className="text-muted fontSize mt-3">{profile.title}</div>

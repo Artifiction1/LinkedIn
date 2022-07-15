@@ -206,7 +206,7 @@ const Home = () => {
                       <img
                         className="img-body"
                         alt="post-img"
-                        src="https://picsum.photos/200/300"
+                        src={current.image}
                       />
                       <hr />
                       <div className="d-flex justify-content-around mt-n2 mb-n3">
@@ -237,7 +237,7 @@ const Home = () => {
 
             <Modal show={show} onHide={handleClose} animation={false}>
               <div id="modal-whole">
-                <Modal.Header>
+                <Modal.Header closeButton>
                   <Modal.Title>Edit Post</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
@@ -253,9 +253,6 @@ const Home = () => {
                 </Modal.Body>
 
                 <Modal.Footer>
-                  <Button className="modal-btns" onClick={handleClose}>
-                    Close
-                  </Button>
                   <Button
                     className="modal-btns gap-0"
                     onClick={() => {
