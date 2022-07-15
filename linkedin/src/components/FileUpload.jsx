@@ -3,7 +3,7 @@ import axios from 'axios';
 import React,{Component} from 'react'; 
 
 
-const FileUpload = () => {
+const FileUpload = ({id}) => {
     const [selectedFile,setSelectedFile] = useState(null)
     const config={headers: {Authorization:
         "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmNiZWNlY2U2YzAzMDAwMTU5MTgxNDMiLCJpYXQiOjE2NTc1MzE2MjgsImV4cCI6MTY1ODc0MTIyOH0.Ueo_M62QO05ffN1aYIPJjOyI14bH3uldPPo-OlagobM"}
@@ -13,7 +13,9 @@ const FileUpload = () => {
         // Update the state 
         setSelectedFile(event.target.files[0]); 
       }; 
-       
+      console.log('/')
+       console.log(id)
+       console.log('/')
       // On file upload (click the upload button) 
       const onFileUpload = () => { 
         // Create an object of formData 
@@ -21,7 +23,7 @@ const FileUpload = () => {
        
         // Update the formData object 
         formData.append( 
-          "profile", 
+          "experience", 
          selectedFile, 
           selectedFile.name 
         ); 
@@ -31,7 +33,7 @@ const FileUpload = () => {
        
         // Request made to the backend api 
         // Send formData object 
-        axios.post("https://striveschool-api.herokuapp.com/api/profile/62cbecece6c0300015918143/picture",formData,config); 
+        axios.post("https://striveschool-api.herokuapp.com/api/profile/62cbecece6c0300015918143/experiences/"+id._id+"/picture",formData,config); 
       }; 
        
       // File content to be displayed after 
