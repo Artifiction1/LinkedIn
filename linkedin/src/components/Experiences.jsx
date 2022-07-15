@@ -83,7 +83,15 @@ const Experiences = ({ Experience, addToExperience, Changed, changer }) => {
         );
         if (response.ok) {
           const data = await response.json();
+          for( let i = 0; i< data.length; i++){
+            if (data[i].endDate !== undefined){
+              if (data[i].endDate === null){
+                data[i].endDate = "now"
+              }
+            }
+          }
           setNewExperiences(data);
+          
           setlastToggle(toggle);
           console.log(data);
           console.log(NewExperiences[0].endDate)
@@ -105,7 +113,7 @@ const Experiences = ({ Experience, addToExperience, Changed, changer }) => {
     if(changers === "changed"){
     FetchExperiences("GET");
   Changed('')}
-  }, [{changers}])
+  }, [changers])
   useEffect(() => {
     FetchExperiences("GET");
     setChanger(Changed)
