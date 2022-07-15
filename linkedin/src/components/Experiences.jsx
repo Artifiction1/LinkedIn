@@ -7,20 +7,23 @@ import { format, parseISO } from "date-fns";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addToExp } from "../redux/actions/actions";
+import { addToExp, Changed } from "../redux/actions/actions";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
 import ExpComponent from "./ExpComponent";
+import { array, number, object, string } from "prop-types";
 
 const mapStateToProps = (state) => {
   return {
     Experience: state.Experience,
+    changer: state.changer,
   };
 };
 const mapDispatchToProps = (dispatch) => ({
   addToExperience: (Exp, target) => dispatch(addToExp(Exp, target)),
+  Changed: (exp) => dispatch(Changed(exp)),
 });
-const Experiences = ({ Experience, addToExperience, id }) => {
+const Experiences = ({ Experience, addToExperience, Changed, changer }) => {
   const params = useParams();
   let userId = params.userId;
   if (userId === undefined) {
@@ -32,7 +35,7 @@ const Experiences = ({ Experience, addToExperience, id }) => {
   const handleClose = () => setShow(false); //62cbecece6c0300015918143
   const handleShow = () => setShow(true);
   const [toggle, setToggle] = useState(false);
-  const [changed, setChanged] = useState("");
+  const [changers, setChanger] = useState("");
   console.log(toggle);
   const [lastToggle, setlastToggle] = useState(true);
   const [NewExperiences, setNewExperiences] = useState([]);
@@ -41,6 +44,7 @@ const Experiences = ({ Experience, addToExperience, id }) => {
     let bodys = {
       area: Experience.area,
       company: Experience.company,
+      description: Experience.description,
       role: Experience.role,
       startDate: Experience.startDate,
       description: Experience.description,
@@ -84,6 +88,7 @@ const Experiences = ({ Experience, addToExperience, id }) => {
           setNewExperiences(data);
           setlastToggle(toggle);
           console.log(data);
+          console.log(NewExperiences[0].endDate);
         }
       } catch (error) {
         console.log(error);
@@ -99,7 +104,14 @@ const Experiences = ({ Experience, addToExperience, id }) => {
     }
   };
   useEffect(() => {
+    if (changers === "changed") {
+      FetchExperiences("GET");
+      Changed("");
+    }
+  }, [{ changers }]);
+  useEffect(() => {
     FetchExperiences("GET");
+    setChanger(Changed);
   }, [userId]);
 
   if (NewExperiences.length > 0) {

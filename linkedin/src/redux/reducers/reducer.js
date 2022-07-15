@@ -4,6 +4,7 @@ import { EDIT_PROFILES, GET_PROFILES } from "../actions/actions";
 const initialState = {
   fetchedProfiles: [],
   editProfiles: [],
+  changer: '',
   Experience: {
     area: "String",
     company: 'String',
@@ -17,6 +18,11 @@ const mainReducer = (state = initialState, action) => {
   const { type, payload, target } = action;
 
   switch (type) {
+    case 'Changed': {
+      return {
+      ...state,
+      changer: payload}
+    }
     case GET_PROFILES: {
       return {
         ...state,

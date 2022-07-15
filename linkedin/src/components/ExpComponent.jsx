@@ -3,21 +3,23 @@ import { useState } from "react";
 import InputGroup from 'react-bootstrap/InputGroup';
 import Form from 'react-bootstrap/Form';
 import { Button } from "react-bootstrap";
-import { addToExp } from "../redux/actions/actions";
+import { addToExp, Changed } from "../redux/actions/actions";
 import { connect } from "react-redux";
 import FileUpload from "./FileUpload";
 
 const mapStateToProps = (state)=>{
     return{ 
-    Experience: state.Experience
+    Experience: state.Experience,
+    changer: state.changer
 }
 }
 const mapDispatchToProps = (dispatch) => ({
-    addToExperience: (Exp,target) => dispatch(addToExp(Exp,target))
+    addToExperience: (Exp,target) => dispatch(addToExp(Exp,target)),
+    Changed: (exp) => dispatch(Changed(exp))
 })
 
 
-const ExpComponent = ({experience, addToExperience, Experience, id}) => {
+const ExpComponent = ({experience, addToExperience, Experience, Changed, changer}) => {
 
     const [Role,setRole]=useState('')
     const [Company,setCompany]=useState('')
@@ -109,7 +111,7 @@ const ExpComponent = ({experience, addToExperience, Experience, id}) => {
       onClick = {()=> { PostExperiences("PUT", experience._id);addToExperience(Area, 'description'); console.log(Experience.description)}}
       >save</Button>
       <Button style={{backgroundColor: 'red', color: 'white'}}
-      onClick={() => {PostExperiences("DELETE",experience._id);addToExperience(Area, 'description'); console.log(Experience.description)}}>DELETE</Button>
+      onClick={() => {PostExperiences("DELETE",experience._id);addToExperience(Area, 'description'); console.log(Experience.description); Changed("Changed"); console.log(changer)}}>DELETE</Button>
           </div></div>
     </>)
 }
