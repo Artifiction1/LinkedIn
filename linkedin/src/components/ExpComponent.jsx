@@ -36,14 +36,14 @@ const ExpComponent = ({experience, addToExperience, Experience, Changed, changer
             "endDate": EndDate
             
             }
-            let SpecificExp = 'https://striveschool-api.herokuapp.com/api/profile/62cbecece6c0300015918143/experiences/'
+            let SpecificExp = 'http://localhost:3008/users/6306295a2ee8d6001548de09/experiences'
         try {
             const resolve = await fetch(SpecificExp+id, {
                    method: method,
                 headers: {
                     'Accept' : 'application/json, text/plain, /',
             'Content-type': 'application/json', 
-                    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzA2Mjk1YTJlZThkNjAwMTU0OGRlMDkiLCJpYXQiOjE2NjEzNDgxODcsImV4cCI6MTY2MjU1Nzc4N30.URz0tug9Gqbu9_CZ_qzivf3oqKg6jgOwvf4JQrICDoA"
+                    
                 },
                 body: JSON.stringify(bodys)
                 })
